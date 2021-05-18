@@ -1,18 +1,33 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AppComponent } from "./app.component";
+import { 
+	IgxCalendarModule,
+	IgxPrefixModule,
+	IgxSelectModule
+ } from "igniteui-angular";
+import { CalendarSample2Component } from "./CalendarSample2.component";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+
 
 @NgModule({
+  bootstrap: [AppComponent],
   declarations: [
-    AppComponent
-  ],
+	AppComponent,
+	CalendarSample2Component
+],
   imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+	BrowserModule,
+	BrowserAnimationsModule,
+	FormsModule,
+	IgxCalendarModule,
+	IgxPrefixModule,
+	IgxSelectModule
+],
   providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [],
+  schemas: []
 })
-export class AppModule { }
+export class AppModule {}
