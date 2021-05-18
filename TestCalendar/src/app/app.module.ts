@@ -9,6 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './calendar/calendar.component';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +25,10 @@ import { CalendarComponent } from './calendar/calendar.component';
     FormsModule,
     IgxCalendarModule,
     IgxPrefixModule,
-    IgxSelectModule
+    IgxSelectModule,
+    MatToolbarModule,
+    MatIconModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
