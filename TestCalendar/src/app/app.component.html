@@ -1,8 +1,9 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" style="border-bottom-style: solid; border-bottom-color:black; text-align: center; background-color: #a5ca56">
   <mat-icon>calendar_today</mat-icon>
   <span>StudyCalendar</span>
 </mat-toolbar>
-<!-- ng add @angular/material then choose "indigo/pink" then yes, yes -->
-
-
-<app-calendar></app-calendar>
+<app-sidenav class="sidenav"></app-sidenav>
+<div class="main">
+  <!-- ng add @angular/material then choose "indigo/pink" then yes, yes -->
+  <app-calendar></app-calendar>
+</div>

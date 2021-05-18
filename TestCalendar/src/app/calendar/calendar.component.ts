@@ -11,7 +11,7 @@ export class CalendarComponent implements OnInit{
 
     public formatOptions: any;
     public formatViews: any;
-    public locales = ['EN', 'DE', 'FR', 'AR', 'ZH'];
+    public locales = ['EN', 'DE', 'FR', 'PT'];
     public locale = 'EN';
 
     public ngOnInit() {

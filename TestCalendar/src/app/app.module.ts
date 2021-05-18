@@ -11,12 +11,20 @@ import { CalendarComponent } from './calendar/calendar.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { SidenavComponent } from './sidenav/sidenav.component';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalendarComponent
+    CalendarComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +35,12 @@ import { MatIconModule } from '@angular/material/icon';
     IgxPrefixModule,
     IgxSelectModule,
     MatToolbarModule,
-    MatIconModule
-
+    MatIconModule,
+    MatSidenavModule,
+    MatBadgeModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
