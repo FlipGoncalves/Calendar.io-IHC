@@ -9,10 +9,21 @@
 <article class="sample-column calendar-wrapper">
     <igx-calendar
         #calendar
+        (selected)="onSelection($event)"
         [locale]="locale"
         [weekStart]="1"
         [formatOptions]="formatOptions"
         [formatViews]="formatViews"
     >
     </igx-calendar>
-</article>  
+</article> 
+<div style="padding-left: 26%;">
+    <span>{{loggerHeader}}</span>
+    <div class="logger"></div>
+    <div *ngIf="showMyContainer">
+        <app-eventdaytable></app-eventdaytable>
+    </div>
+    <div *ngIf="showContainer15maio">
+        <app-eventday15maio></app-eventday15maio>
+    </div>
+</div>
