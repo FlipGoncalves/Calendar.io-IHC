@@ -54,7 +54,6 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { MygroupsComponent } from './mygroups/mygroups.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
