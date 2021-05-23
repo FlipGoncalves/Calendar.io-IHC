@@ -53,6 +53,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { MygroupsComponent } from './mygroups/mygroups.component';
+import { CoursesComponent } from './courses/courses.component';
+import { IhcComponent } from './ihc/ihc.component';
+import { IhcP3Component } from './ihc-p3/ihc-p3.component';
+import { NewEventComponent } from './new-event/new-event.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,11 @@ import { MygroupsComponent } from './mygroups/mygroups.component';
     SidenavComponent,
     EventdaytableComponent,
     Eventday15maioComponent,
-    MygroupsComponent
+    MygroupsComponent,
+    CoursesComponent,
+    IhcComponent,
+    IhcP3Component,
+    NewEventComponent,
   ],
   imports: [
     BrowserModule,

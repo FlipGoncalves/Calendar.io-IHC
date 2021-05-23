@@ -1,0 +1,22 @@
+section {
+    display: table;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 800px;
+    padding-top: 2%;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 50px 8px 0;
+  }
+
+  .titulo{
+    color: #59585d;
+    font-size: 20px;
+    font-weight: 300!important;
+    margin-bottom: 0;
+    text-shadow: none;
+    text-transform: none;
+  }

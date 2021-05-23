@@ -1,3 +1,5 @@
+@import '~igniteui-angular/lib/core/styles/themes/index';
+
 .calendar-wrapper {
     max-width: 850px;
     min-width: 600px;
@@ -20,4 +22,29 @@
 .logger {
     font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+$custom-calendar-theme: igx-calendar-theme(
+    $header-background:#a5ca56,
+    $content-background: #fdfdfd,
+    $header-text-color: #ffffff,
+    $date-current-text-color: #000,
+    $picker-arrow-color: #000,
+    $date-selected-text-color: #fdfdfd,
+    $date-current-bg-color: #fdfdfd,
+    $picker-arrow-hover-color: #a5ca56,
+    $year-current-text-color: #000,
+    $year-hover-text-color: #000,
+    $month-current-text-color: #000,
+    $month-hover-text-color: #000,
+    $picker-text-color: #000,
+    $picker-text-hover-color: #a5ca56,
+);
+
+@include igx-css-vars($custom-calendar-theme);
+
+:host {
+    ::ng-deep {
+      @include igx-calendar($custom-calendar-theme);
+    }
 }
