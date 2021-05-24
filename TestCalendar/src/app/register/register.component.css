@@ -1,34 +1,4 @@
-  
-  mat-toolbar > span {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  .navbar {
-    width: 100%;
-    border-bottom-style: solid;
-    border-bottom-color:black;
-    text-align: center;
-    background-color: #a5ca56;
-  }
-
-  .sidenav {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 260px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */  
-    left: 0;
-    background-color: #a5ca56;
-    border-right-color: #000;
-    border-right-width: 5px;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    border-right-width: 2px;
-  }
-
-  .main {
-    margin-left: 260px; /* Same as the width of the sidebar */
-  }
-
-  html,
+html,
 body {
 	height: 100%;
 	margin: 0;

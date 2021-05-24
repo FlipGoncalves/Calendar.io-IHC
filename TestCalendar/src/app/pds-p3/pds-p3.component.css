@@ -1,0 +1,19 @@
+section {
+    display: table;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 800px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 20px 50px 50px 0;
+  }
+
+  .titulo{
+    font-weight: 300!important;
+    margin-bottom: 0;
+    text-shadow: none;
+    text-transform: none;
+  }

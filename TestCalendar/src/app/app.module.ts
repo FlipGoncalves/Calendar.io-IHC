@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { AngularMaterialModule } from './angular-material.module';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { IgxCalendarModule, IgxPrefixModule, IgxSelectModule, IgxDialogModule } from "igniteui-angular";
 
@@ -58,6 +59,15 @@ import { IhcComponent } from './ihc/ihc.component';
 import { IhcP3Component } from './ihc-p3/ihc-p3.component';
 import { NewEventComponent } from './new-event/new-event.component';
 import { LanguageComponent } from './language/language.component';
+import { PdsComponent } from './pds/pds.component';
+import { BdComponent } from './bd/bd.component';
+import { PdsP3Component } from './pds-p3/pds-p3.component';
+import { BdP3Component } from './bd-p3/bd-p3.component';
+import { AccountComponent } from './account/account.component';
+import { SigninComponent } from './signin/signin.component';
+import { RegisterComponent } from './register/register.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { TestarSigninComponent } from './testar-signin/testar-signin.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +82,14 @@ import { LanguageComponent } from './language/language.component';
     IhcP3Component,
     NewEventComponent,
     LanguageComponent,
+    PdsComponent,
+    BdComponent,
+    PdsP3Component,
+    BdP3Component,
+    AccountComponent,
+    SigninComponent,
+    RegisterComponent,
+    TestarSigninComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +107,11 @@ import { LanguageComponent } from './language/language.component';
     MatTabsModule,
     MatButtonModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -133,7 +155,8 @@ import { LanguageComponent } from './language/language.component';
     OverlayModule,
     PortalModule,
     ScrollingModule,
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
 }
