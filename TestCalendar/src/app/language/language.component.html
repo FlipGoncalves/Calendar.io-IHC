@@ -1,0 +1,8 @@
+<article class="sample-column location-wrapper">
+    <igx-select #select [(ngModel)]="locale">
+        <igx-prefix>Language: </igx-prefix>
+        <igx-select-item *ngFor="let locale of locales" [value]="locale">
+            {{ locale }}
+        </igx-select-item>
+    </igx-select>
+</article>

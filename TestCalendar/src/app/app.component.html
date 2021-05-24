@@ -1,10 +1,13 @@
-<mat-toolbar color="primary" style="border-bottom-style: solid; border-bottom-color:black; text-align: center; background-color: #a5ca56">
-  <mat-icon>calendar_today</mat-icon>
-  <span>StudyCalendar</span>
-  <span>Joana Pereira Silva 90126</span>
-  <mat-icon>account_circle</mat-icon>
-</mat-toolbar>
+<div>
+  <mat-toolbar color="primary" class="navbar">
+    <mat-icon>calendar_today</mat-icon>
+    <span>StudyCalendar</span>
+    <span>Joana Pereira Silva 90126</span>
+    <mat-icon>account_circle</mat-icon>
+  </mat-toolbar>
+</div>
 <app-sidenav class="sidenav"></app-sidenav>
+<!-- <app-language></app-language> -->
 <div class="main">
   <!-- ng add @angular/material then choose "indigo/pink" then yes, yes -->
   <router-outlet></router-outlet>

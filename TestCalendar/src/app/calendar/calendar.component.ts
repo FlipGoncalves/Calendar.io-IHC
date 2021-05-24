@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IgxCalendarComponent, IgxDialogComponent } from 'igniteui-angular';
-import { EventdaytableComponent } from '../eventdaytable/eventdaytable.component'
 
 @Component({
     selector: 'app-calendar',
@@ -10,11 +9,9 @@ import { EventdaytableComponent } from '../eventdaytable/eventdaytable.component
 export class CalendarComponent implements OnInit{
     @ViewChild('calendar', { static: true }) static calendar: IgxCalendarComponent;
     @ViewChild('alert', { static: true }) static dialog: IgxDialogComponent;
-    public loggerHeader = `Interact with the calendar to see the events for the day:`;
 
     public formatOptions: any;
     public formatViews: any;
-    public locales = ['EN', 'DE', 'FR', 'PT'];
     public locale = 'EN';
     public showMyContainer: boolean = false;
     public showContainer15maio: boolean = false;
@@ -32,9 +29,21 @@ export class CalendarComponent implements OnInit{
         if (day == 14 && month == 5) {
             this.showContainer15maio = true;
             this.showMyContainer = false;
+            const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
+            modal.style.display = "block";
+            const close: HTMLElement = document.getElementById("close") as HTMLElement;
+            close.onclick = function() {
+                modal.style.display = "none";
+            }
         } else {
             this.showMyContainer = true;
             this.showContainer15maio = false;
+            const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
+            modal.style.display = "block";
+            const close: HTMLElement = document.getElementById("close") as HTMLElement;
+            close.onclick = function() {
+                modal.style.display = "none";
+            }
         }
         //logger.innerHTML = `${day}-${month}-${year}`;
     }

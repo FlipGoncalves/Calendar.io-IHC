@@ -57,6 +57,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { IhcComponent } from './ihc/ihc.component';
 import { IhcP3Component } from './ihc-p3/ihc-p3.component';
 import { NewEventComponent } from './new-event/new-event.component';
+import { LanguageComponent } from './language/language.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { NewEventComponent } from './new-event/new-event.component';
     IhcComponent,
     IhcP3Component,
     NewEventComponent,
+    LanguageComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,7 @@
+.location-wrapper {
+    min-width: 300px;
+    max-width: 830px;
+    margin-bottom: 32px;
+    position: relative;
+    margin: auto;
+}

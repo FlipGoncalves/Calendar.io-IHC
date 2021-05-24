@@ -8,9 +8,9 @@ import { CoursesComponent } from './courses/courses.component';
 
 const routes: Routes = [
   { path: 'new_event', component: NewEventComponent},
-  {path: 'ihc', component: IhcComponent},
-  {path: 'ihc_p3', component: IhcP3Component},
-  { path:'', component: CoursesComponent},
+  { path: 'ihc', component: IhcComponent},
+  { path: 'ihc_p3', component: IhcP3Component},
+  { path: '', component: CoursesComponent},
   { path: 'home', component: CalendarComponent },
   { path: 'mycourses', component: CoursesComponent },
 ];
