@@ -23,10 +23,13 @@ export class EventdaytableComponent implements OnInit {
   ) {}
 
   displayedColumns: string[] = ['title', 'date'];
-  public date: string = this.cartService.getData();
+  public date: string = "";
   public items: any = this.cartService.getItems();
-  public data = this.items.filter((item: { title: any; }) => item.title !== this.date);
-  public dataSource: any = this.data;
+  public dataSource: any = this.items;
 
   ngOnInit(): void {}
+
+  setdata(date: string) {
+    this.date = date;
+  }
 }

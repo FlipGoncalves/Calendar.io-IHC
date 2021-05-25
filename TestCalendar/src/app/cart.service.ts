@@ -4,7 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CartService {
-  items: any = [];
+  items: any = [
+    {title: "borges", date: "2021-05-12"}
+  ];
   data: string = "";
 
   addToCart(product: any) {
@@ -23,11 +25,9 @@ export class CartService {
 
   setData(date: string) {
     this.data = date;
-    alert(this.data + " set")
   }
 
   getData() {
-    alert(this.data + " get")
     return this.data;
   }
 }

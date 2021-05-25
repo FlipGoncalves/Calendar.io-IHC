@@ -43,7 +43,16 @@ export class CalendarComponent implements OnInit{
                 modal.style.display = "none";
             }
         } else {
-            this.cartService.setData(year+"-"+month+"-"+day);
+            let space = "";
+            let secondspace = "";
+            if (month < 10) {
+                space = "0";
+            }
+            if (day < 10) {
+                secondspace = "0";
+            }
+            this.cartService.setData(year+"-"+space+month+"-"+secondspace+day);
+            this.event.setdata(year+"-"+space+month+"-"+secondspace+day);
             this.showMyContainer = true;
             this.showContainer15maio = false;
             const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
