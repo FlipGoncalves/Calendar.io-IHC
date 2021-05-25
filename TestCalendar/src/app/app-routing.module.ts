@@ -1,3 +1,4 @@
+import { CreateGroupComponent } from './create-group/create-group.component';
 import { TestarSigninComponent } from './testar-signin/testar-signin.component';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
@@ -16,6 +17,7 @@ import { CoursesComponent } from './courses/courses.component';
 
 const routes: Routes = [
   { path: 'new_event', component: NewEventComponent},
+  { path: 'create_group', component: CreateGroupComponent},
   { path: 'ihc', component: IhcComponent},
   { path: 'pds', component: PdsComponent },
   { path: 'bd', component: BdComponent },
