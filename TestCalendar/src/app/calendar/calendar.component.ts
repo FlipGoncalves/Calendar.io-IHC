@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IgxCalendarComponent, IgxDialogComponent } from 'igniteui-angular';
+import { CartService } from '../cart.service';
+import { EventdaytableComponent } from '../eventdaytable/eventdaytable.component';
 
 @Component({
     selector: 'app-calendar',
@@ -9,6 +11,11 @@ import { IgxCalendarComponent, IgxDialogComponent } from 'igniteui-angular';
 export class CalendarComponent implements OnInit{
     @ViewChild('calendar', { static: true }) static calendar: IgxCalendarComponent;
     @ViewChild('alert', { static: true }) static dialog: IgxDialogComponent;
+
+    constructor(
+        private cartService: CartService,
+        private event: EventdaytableComponent
+    ) { }
 
     public formatOptions: any;
     public formatViews: any;
@@ -36,6 +43,16 @@ export class CalendarComponent implements OnInit{
                 modal.style.display = "none";
             }
         } else {
+            let space = "";
+            let secondspace = "";
+            if (month < 10) {
+                space = "0";
+            }
+            if (day < 10) {
+                secondspace = "0";
+            }
+            this.cartService.setData(year+"-"+space+month+"-"+secondspace+day);
+            this.event.setdata(year+"-"+space+month+"-"+secondspace+day);
             this.showMyContainer = true;
             this.showContainer15maio = false;
             const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
@@ -45,6 +62,5 @@ export class CalendarComponent implements OnInit{
                 modal.style.display = "none";
             }
         }
-        //logger.innerHTML = `${day}-${month}-${year}`;
     }
 }
