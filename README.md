@@ -11,6 +11,9 @@ npm install --save-dev @angular-devkit/build-angular
 npm install --save @angular/material @angular/cdk
 
 ng install @angular-devkit/build-angular/package.json
+
 ng add @angular/material
+
 npm i -s @angular/flex-layout @angular/cdk
+
 npm install @angular/core
