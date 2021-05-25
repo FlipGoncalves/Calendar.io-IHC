@@ -10,7 +10,6 @@ export class CartService {
   addToCart(product: any) {
     product = {title: product.title, date: product.startdate}
     this.items.push(product);
-    alert(product.title);
   }
 
   getItems() {
@@ -24,9 +23,11 @@ export class CartService {
 
   setData(date: string) {
     this.data = date;
+    alert(this.data + " set")
   }
 
   getData() {
+    alert(this.data + " get")
     return this.data;
   }
 }

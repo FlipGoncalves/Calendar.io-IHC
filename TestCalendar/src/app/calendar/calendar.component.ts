@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IgxCalendarComponent, IgxDialogComponent } from 'igniteui-angular';
 import { CartService } from '../cart.service';
+import { EventdaytableComponent } from '../eventdaytable/eventdaytable.component';
 
 @Component({
     selector: 'app-calendar',
@@ -12,8 +13,9 @@ export class CalendarComponent implements OnInit{
     @ViewChild('alert', { static: true }) static dialog: IgxDialogComponent;
 
     constructor(
-        private cartService: CartService
-      ) { }
+        private cartService: CartService,
+        private event: EventdaytableComponent
+    ) { }
 
     public formatOptions: any;
     public formatViews: any;
@@ -51,6 +53,5 @@ export class CalendarComponent implements OnInit{
                 modal.style.display = "none";
             }
         }
-        //logger.innerHTML = `${day}-${month}-${year}`;
     }
 }

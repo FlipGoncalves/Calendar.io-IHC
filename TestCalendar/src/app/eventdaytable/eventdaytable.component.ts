@@ -17,14 +17,16 @@ export class EventdaytableComponent implements OnInit {
 
   showMyContainer: boolean = false;
   shownormal: boolean = true;
+
   constructor(
     private cartService: CartService
-  ) { }
+  ) {}
+
   displayedColumns: string[] = ['title', 'date'];
   public date: string = this.cartService.getData();
   public items: any = this.cartService.getItems();
-  //for loop
-  public dataSource: any = this.items;
-  ngOnInit(): void {
-  }
+  public data = this.items.filter((item: { title: any; }) => item.title !== this.date);
+  public dataSource: any = this.data;
+
+  ngOnInit(): void {}
 }

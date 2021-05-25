@@ -30,7 +30,6 @@ export class NewEventComponent implements OnInit {
   notes: string = "";
 
   clickme() {
-    alert(this.title);
     this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time,
                       endtime: this.end_time, reminder: this.rem, repetition: this.rep}
     this.addToCart(this.product);
@@ -38,6 +37,5 @@ export class NewEventComponent implements OnInit {
 
   addToCart(product: any) {
     this.cartService.addToCart(product);
-    window.alert('Your product has been added to the cart!');
   }
 }
