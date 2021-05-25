@@ -1,71 +1,41 @@
-<div style="padding-left: 10%; padding-top: 2%;">
-    <div class="testbox">
-        <form action="/">
-          <h5 style="text-align: center;">New Group</h5>
-          <div class="item">
-            <p>Title<span>*</span></p>
-            <div>
-              <input type="text" name="name" placeholder="Title" />
-            </div>
-          </div>
-            <div class="item">
-                <i class="fas fa-calendar-alt"></i>
-                <p>Start Date<span>*</span></p>
-                <input type="date" name="name" required/>
-                <i class="fas fa-calendar-alt"></i>
-            </div>
-            <div class="item">
-                    <p>Start time:<span>*</span></p>
-                    <input type="time" name="name" required/>
-                    <i class="fas fa-clock"></i>
-            </div>
-            <div class="item">
-                    <label for="sdate">End Date<span>*</span></label>
-                    <input id="sdate" type="date" name="sdate" required/>
-                    <i class="fas fa-calendar-alt"></i>
-            </div>
-            <div class="item">
-                <p>End time:<span>*</span></p>
-                <input type="time" name="name" required/>
-                <i class="fas fa-clock"></i>
-            </div>
+<p></p>
+<section class="container">
 
-          <div class="item">
-            <p>Repetition</p>
-            <select>
-              <option value="never" selected>Never</option>
-              <option value="everyDay">Every day</option>
-              <option value="everyWeek">Every week</option>
-              <option value="every15Days">Every 15 days</option>
-              <option value="everyMonths">Every months</option>
-              <option value="everyYear">Every year</option>
-            </select>
-          </div>
+  <div class="panel panel-default" >
+                    
+    <div class="panel-body">              
+                    <h4 class="text-center text-info">Angular 5 RxJs - Multi-Option Filter by ozkary.com</h4>
 
-          <div class="item">
-            <p>Reminder</p>
-            <select>
-              <option value="none" selected>None</option>
-              <option value="atTimeEvent" >At the time of the event</option>
-              <option value="5_minutes_before">5 minutes before</option>
-              <option value="10_minutes_before">10 minutes before</option>
-              <option value="15_minutes_before">15 minutes before</option>
-              <option value="30_minutes_before">30 minutes before</option>
-              <option value="1_hour_before">1 hour before</option>
-              <option value="2_hours_before">2 hours before</option>
-              <option value="one_day_before">One day before</option>
-              <option value="two_days_before">two days before</option>
-              <option value="1_week_before">1 week before</option>
-            </select>
-          </div>
-          <div class="item">
-            <p>Notes:</p>
-            <textarea rows="5"></textarea>
-          </div>
-          <div class="example-button-row">
-            <a mat-raised-button routerLink="/ihc">Cancel</a>
-            <a mat-raised-button routerLink="/ihc">Save</a>
-          </div>
-        </form>
-      </div>
-</div>
+          <label class="control-label">Vehicle List by Makes</label>
+            <hr/>   
+
+    <div class="row">         
+    <div class="col-sm-12 text-center">               
+        
+    <span class="center-block">
+            <label *ngFor="let option of makes | async">
+                <input type="checkbox" [(ngModel)]="option.checked" (ngModelChange)="filter(option)" /> {{option.name}}  &nbsp;          
+            </label>                  
+    </span>     
+    
+    </div>
+    </div>
+    <h3>
+      Inventory List - Found {{found}}
+    </h3>
+
+    <table class="table table-bordered text-center">
+        <tr *ngFor="let item of cars | async" >                
+            <td>{{item.year}}</td>
+            <td>{{item.make}} </td>
+            <td>{{item.model}}</td>             
+        </tr>
+    </table>
+
+            
+            
+  </div>
+</div>            
+
+
+</section>
