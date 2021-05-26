@@ -115,7 +115,10 @@ import { CreateGroupComponent } from './create-group/create-group.component';
     ReactiveFormsModule,
     AngularMaterialModule
   ],
-  providers: [EventdaytableComponent],
+  providers: [
+    EventdaytableComponent,
+    CreateGroupComponent
+  ],
   bootstrap: [AppComponent],
   exports: [
     A11yModule,

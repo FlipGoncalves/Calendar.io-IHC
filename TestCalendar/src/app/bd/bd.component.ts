@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CreateGroupComponent } from '../create-group/create-group.component';
 
 @Component({
   selector: 'app-bd',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BdComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private courses: CreateGroupComponent
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  onclick(): void {
+    alert("set")
+    this.courses.setCourse("BD")
   }
 
 }

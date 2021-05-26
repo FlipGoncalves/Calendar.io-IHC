@@ -1,6 +1,5 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
-import { Observable, of } from 'rxjs';
 
 export interface Events {
   title: string;
@@ -28,7 +27,8 @@ export class EventdaytableComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
-    this.dataSource = this.forloop();
+    this.items = this.forloop();
+    this.dataSource = this.items;
   }
 
   ngOnDestroy() {

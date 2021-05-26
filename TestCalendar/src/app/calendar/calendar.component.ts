@@ -33,7 +33,6 @@ export class CalendarComponent implements OnInit{
         let day = (+JSON.stringify(date).substring(9,11));
         let month = (+JSON.stringify(date).substring(6,8));
         let year = (+JSON.stringify(date).substring(1,5));
-        let count = 0;
         
         let space = "";
         let secondspace = "";

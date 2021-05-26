@@ -9,7 +9,7 @@
         <a mat-raised-button routerLink="/ihc_p1">IHC P1</a>
         <a mat-raised-button routerLink="/ihc_p2">IHC P2</a>
         <a mat-raised-button routerLink="/ihc_p3">IHC P3</a>
-        <a mat-raised-button routerLink="/create_group" style="color: #a5ca56;">
+        <a mat-raised-button routerLink="/create_group" (click)="onclick('IHC')" style="color: #a5ca56;">
             <mat-icon>create_new_folder</mat-icon>
             <a style="margin-left: 2%;">Create a new group</a>
         </a>
@@ -23,7 +23,7 @@
         <a mat-raised-button routerLink="/pds_p1">PDS P1</a>
         <a mat-raised-button routerLink="/pds_p2">PDS P2</a>
         <a mat-raised-button routerLink="/pds_p3">PDS P3</a>
-        <a mat-raised-button routerLink="/create_group" style="color: #a5ca56;">
+        <a mat-raised-button routerLink="/create_group" (click)="onclick('PDS')" style="color: #a5ca56;">
             <mat-icon>create_new_folder</mat-icon>
             <a style="margin-left: 2%;">Create a new group</a>
         </a>
@@ -37,7 +37,7 @@
         <a mat-raised-button routerLink="/bd_p1">BD P1</a>
         <a mat-raised-button routerLink="/bd_p2">BD P2</a>
         <a mat-raised-button routerLink="/bd_p3">BD P3</a>
-        <a mat-raised-button routerLink="/create_group" style="color: #a5ca56;">
+        <a mat-raised-button routerLink="/create_group" (click)="onclick('BD')" style="color: #a5ca56;">
             <mat-icon>create_new_folder</mat-icon>
             <a style="margin-left: 2%;">Create a new group</a>
         </a>

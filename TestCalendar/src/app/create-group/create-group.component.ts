@@ -1,34 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import { from, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { IVehicle, IVehicleMake, CreateGroupService } from './create-group.service'; //MUDAR
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-create-group',
   templateUrl: './create-group.component.html',
-  styleUrls: ['./create-group.component.css']
+  styleUrls: ['./create-group.component.css'],
 })
 
 export class CreateGroupComponent implements OnInit {
 
-  cars: Observable<IVehicle[]> | undefined;
-  makes : Observable<IVehicleMake[]> | undefined;
-  found :number | undefined;
-  private svcApp:CreateGroupService;
+  constructor(
+    private cartService: CartService,
+  ) {}
 
-  constructor(svc: CreateGroupService) {
-    this.svcApp = svc;
+  displayedColumns: string[] = ['cadeira', 'pratica', 'grupo'];
+  public cadeiras: any = this.cartService.getGrupos();
+  public dataSource: any = this.cadeiras;
+  public course: string = this.cartService.getCourse();
+
+  public ngOnInit() {
+    this.cadeiras = this.cartService.getGrupos();
+    this.dataSource = this.forloop();
   }
 
-  ngOnInit() {
-    this.cars = this.svcApp.cars;
-    this.makes = this.svcApp.makes;
-    this.svcApp.init();
-    this.cars.subscribe(items=>this.found = items.length);
+  forloop() {
+    let array: any = [];
+    for (let item of this.cadeiras) {
+      if (item.cadeira === this.course) {
+        array.push(item)
+      }
+    }
+    return array;
   }
 
-  public filter(ref: IVehicleMake){
-      this.svcApp.filter(ref);           
+  setCourse(course: string) {
+    this.course = course;
+  }
+
+  allComplete: boolean = false;
+
+  setAll(selected: boolean) {
+    this.allComplete = selected;
+    this.dataSource.forEach((t: any) => t.selected = selected);
   }
 }
 
