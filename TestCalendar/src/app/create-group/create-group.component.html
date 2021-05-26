@@ -1,0 +1,41 @@
+<p></p>
+<section class="container">
+
+  <div class="panel panel-default" >
+                    
+    <div class="panel-body">              
+                    <h4 class="text-center text-info">Angular 5 RxJs - Multi-Option Filter by ozkary.com</h4>
+
+          <label class="control-label">Vehicle List by Makes</label>
+            <hr/>   
+
+    <div class="row">         
+    <div class="col-sm-12 text-center">               
+        
+    <span class="center-block">
+            <label *ngFor="let option of makes | async">
+                <input type="checkbox" [(ngModel)]="option.checked" (ngModelChange)="filter(option)" /> {{option.name}}  &nbsp;          
+            </label>                  
+    </span>     
+    
+    </div>
+    </div>
+    <h3>
+      Inventory List - Found {{found}}
+    </h3>
+
+    <table class="table table-bordered text-center">
+        <tr *ngFor="let item of cars | async" >                
+            <td>{{item.year}}</td>
+            <td>{{item.make}} </td>
+            <td>{{item.model}}</td>             
+        </tr>
+    </table>
+
+            
+            
+  </div>
+</div>            
+
+
+</section>

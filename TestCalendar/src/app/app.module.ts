@@ -68,6 +68,7 @@ import { SigninComponent } from './signin/signin.component';
 import { RegisterComponent } from './register/register.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TestarSigninComponent } from './testar-signin/testar-signin.component';
+import { CreateGroupComponent } from './create-group/create-group.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { TestarSigninComponent } from './testar-signin/testar-signin.component';
     SigninComponent,
     RegisterComponent,
     TestarSigninComponent,
+    CreateGroupComponent,
   ],
   imports: [
     BrowserModule,
