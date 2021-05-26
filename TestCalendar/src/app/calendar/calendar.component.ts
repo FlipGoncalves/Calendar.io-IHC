@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { count } from 'console';
 import { IgxCalendarComponent, IgxDialogComponent } from 'igniteui-angular';
 import { CartService } from '../cart.service';
 import { EventdaytableComponent } from '../eventdaytable/eventdaytable.component';
@@ -21,7 +22,6 @@ export class CalendarComponent implements OnInit{
     public formatViews: any;
     public locale = 'EN';
     public showMyContainer: boolean = false;
-    public showContainer15maio: boolean = false;
 
     public ngOnInit() {
         this.formatOptions = { Day: '2-digit', Month: 'long', weekday: 'long', Year: 'numeric' };
@@ -33,34 +33,26 @@ export class CalendarComponent implements OnInit{
         let day = (+JSON.stringify(date).substring(9,11));
         let month = (+JSON.stringify(date).substring(6,8));
         let year = (+JSON.stringify(date).substring(1,5));
-        if (day == 14 && month == 5) {
-            this.showContainer15maio = true;
-            this.showMyContainer = false;
-            const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
-            modal.style.display = "block";
-            const close: HTMLElement = document.getElementById("close") as HTMLElement;
-            close.onclick = function() {
-                modal.style.display = "none";
-            }
-        } else {
-            let space = "";
-            let secondspace = "";
-            if (month < 10) {
-                space = "0";
-            }
-            if (day < 10) {
-                secondspace = "0";
-            }
-            this.cartService.setData(year+"-"+space+month+"-"+secondspace+day);
-            this.event.setdata(year+"-"+space+month+"-"+secondspace+day);
-            this.showMyContainer = true;
-            this.showContainer15maio = false;
-            const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
-            modal.style.display = "block";
-            const close: HTMLElement = document.getElementById("close") as HTMLElement;
-            close.onclick = function() {
-                modal.style.display = "none";
-            }
+        let count = 0;
+        
+        let space = "";
+        let secondspace = "";
+        if (month < 10) {
+            space = "0";
         }
+        if (day < 10) {
+            secondspace = "0";
+        }
+        this.cartService.setData(year+"-"+space+month+"-"+secondspace+day);
+        this.event.setdata(year+"-"+space+month+"-"+secondspace+day);
+        this.showMyContainer = true;
+        const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
+        modal.style.display = "block";
+    }
+
+    close() {
+        const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
+        modal.style.display = "none";
+        this.showMyContainer = false;
     }
 }
