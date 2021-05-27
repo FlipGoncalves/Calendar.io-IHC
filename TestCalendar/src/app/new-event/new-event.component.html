@@ -32,7 +32,7 @@
 
           <div class="item">
             <p>Repetition</p>
-            <select [(ngModel)]="rep">
+            <select [(ngModel)]="rep" name="rep">
               <option value="never" selected>Never</option>
               <option value="everyDay">Every day</option>
               <option value="everyWeek">Every week</option>
@@ -44,7 +44,7 @@
 
           <div class="item">
             <p>Reminder</p>
-            <select [(ngModel)]="rem">
+            <select [(ngModel)]="rem" name="rep">
               <option value="none" selected>None</option>
               <option value="atTimeEvent" >At the time of the event</option>
               <option value="5_minutes_before">5 minutes before</option>
@@ -60,7 +60,7 @@
           </div>
           <div class="item">
             <p>Notes:</p>
-            <textarea rows="5" [(ngModel)]="notes"></textarea>
+            <textarea rows="5" [(ngModel)]="notes" name="notes"></textarea>
           </div>
           <div class="example-button-row">
             <a mat-raised-button routerLink="/ihc_p3">Cancel</a>

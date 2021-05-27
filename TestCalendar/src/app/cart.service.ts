@@ -29,7 +29,6 @@ export class CartService {
   course: string = "";
 
   addToCart(product: any) {
-    product = {title: product.title, date: product.startdate}
     this.items.push(product);
   }
 

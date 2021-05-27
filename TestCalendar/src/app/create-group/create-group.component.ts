@@ -17,6 +17,9 @@ export class CreateGroupComponent implements OnInit {
   public cadeiras: any = this.cartService.getGrupos();
   public dataSource: any = this.cadeiras;
   public course: string = this.cartService.getCourse();
+  public showContainer: boolean = false;
+  public selec: string = "";
+  public people: any = this.cartService.getAlunos();
 
   public ngOnInit() {
     this.cadeiras = this.cartService.getGrupos();
@@ -38,10 +41,35 @@ export class CreateGroupComponent implements OnInit {
   }
 
   allComplete: boolean = false;
+  allCompletePeople: boolean = false;
 
   setAll(selected: boolean) {
     this.allComplete = selected;
     this.dataSource.forEach((t: any) => t.selected = selected);
   }
+
+  open() {
+    const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
+    modal.style.display = "block";
+    for (let item of this.dataSource) {
+      if (item.selected == true) {
+        this.selec += (item.turma + " - " + item.grupo) + "; ";
+      }
+    }
+    this.showContainer = true;
+  }
+
+  close() {
+    const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
+    modal.style.display = "none";
+    this.showContainer = false;
+  }
+
+  setAllPeople(selected: boolean) {
+    alert(selected)
+    this.allCompletePeople = selected;
+    this.people.forEach((t: any) => t.selected = selected);
+  }
+
 }
 

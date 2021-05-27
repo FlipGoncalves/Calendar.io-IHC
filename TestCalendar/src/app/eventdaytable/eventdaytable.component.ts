@@ -20,7 +20,7 @@ export class EventdaytableComponent implements OnInit {
     private cartService: CartService
   ) {}
 
-  displayedColumns: string[] = ['title', 'date'];
+  displayedColumns: string[] = ['title', 'startdate', 'enddate', 'starttime', 'endtime', 'repetition', 'reminder', 'notes'];
   public date: string = this.cartService.getData();
   public items: any = this.cartService.getItems();
   public dataSource: any = this.items;
@@ -42,8 +42,9 @@ export class EventdaytableComponent implements OnInit {
     let array: any = [];
     let newDate = new Date(this.date);
     for (let item of this.items) {
-      let itemdate = new Date(item.date)
-      if (itemdate <= newDate) {
+      let startdate = new Date(item.startdate)
+      let enddate = new Date(item.enddate)
+      if (startdate <= newDate && newDate <= enddate) {
         array.push(item)
       }
     }
