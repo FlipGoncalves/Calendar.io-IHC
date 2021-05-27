@@ -14,8 +14,6 @@ export class CreateGroupComponent implements OnInit {
   ) {}
 
   displayedColumns: string[] = ['cadeira', 'grupo'];
-  public cadeiras: any = this.cartService.getGrupos();
-  public dataSource: any = this.cadeiras;
   public groups: any = this.cartService.getGroups();
   public course: string = this.cartService.getCourse();
   public showContainer: boolean = false;
@@ -63,11 +61,11 @@ export class CreateGroupComponent implements OnInit {
   close() {
     const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
     modal.style.display = "none";
+    this.selec = "";
     this.showContainer = false;
   }
 
   setAllPeople(selected: boolean) {
-    alert(selected)
     this.allCompletePeople = selected;
     this.people_groups.forEach((t: any) => t.selected = selected);
   }

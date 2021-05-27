@@ -27,18 +27,19 @@
                   </div>
                 </div>
                 <div class="item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <p>Start Date<span>*</span></p>
-                    <input type="date" name="name" required/>
-                    <i class="fas fa-calendar-alt"></i>
+                  <p>Group's name:</p>
+                  <div>
+                    <input type="text" name="name" placeholder="Group's name"/>
+                  </div>
                 </div>
                 <div class="item">
-                        <label for="sdate">End Date<span>*</span></label>
-                        <input id="sdate" type="date" name="sdate" required/>
-                        <i class="fas fa-calendar-alt"></i>
+                  <p>Administrators email (optional):</p>
+                  <div>
+                    <input type="text" name="name" placeholder="Administrators email"/>
+                  </div>
                 </div>
                 <div class="item">
-                  <p>Students</p>
+                  <p>Students:</p>
                   <section class="example-section">
                     <span class="example-list-section">
                       <mat-checkbox class="example-margin" (change)="setAllPeople($event.checked)">Check all</mat-checkbox>
@@ -50,13 +51,9 @@
                     </span>
                   </section>
                 </div>
-                <div class="item">
-                  <p>Notes:</p>
-                  <textarea rows="5"></textarea>
-                </div>
                 <div class="example-button-row">
                   <a mat-raised-button routerLink="/mycourses">Cancel</a>
-                  <a mat-raised-button routerLink="/mycourses">Save</a>
+                  <a mat-raised-button (click)="save()" routerLink="/mycourses">Save</a>
                 </div>
               </form>
             </div>
