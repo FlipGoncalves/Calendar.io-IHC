@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   items: any = [
-    {title: "ferias", date: "2021-05-12"}
+    {title: "ferias", startdate: "2021-05-12", enddate: "2021-05-12", starttime: "19:20", endtime: "19:40", reminder: "none", repetition: "7", notes: ""}
   ];
   pessoas: any = [
     {name: "filipe", cadeira: "IHC", turma: "P3", grupo: "G2", selected: false},
