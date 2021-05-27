@@ -69,6 +69,7 @@ import { RegisterComponent } from './register/register.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TestarSigninComponent } from './testar-signin/testar-signin.component';
 import { CreateGroupComponent } from './create-group/create-group.component';
+import { IgxButtonModule, IgxToggleModule } from "igniteui-angular";
 
 @NgModule({
   declarations: [
@@ -113,7 +114,9 @@ import { CreateGroupComponent } from './create-group/create-group.component';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    IgxButtonModule,
+    IgxToggleModule
   ],
   providers: [
     EventdaytableComponent,

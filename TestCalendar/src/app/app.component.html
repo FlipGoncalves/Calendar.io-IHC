@@ -1,46 +1,24 @@
-<mat-toolbar style="position: fixed; background-color:#a5ca56">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/home">
-    <mat-icon>calendar_today</mat-icon>
-  </button>
-  <span routerLink="/home">StudyCalendar</span>
-  <span class="example-spacer"></span>
-  <span>Joana Pereira Silva 90126</span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/testar-signin">
-    <mat-icon>account_circle</mat-icon>
-  </button>
-</mat-toolbar>
-<!-- <app-language></app-language> -->
-<div>
-  <!-- ng add @angular/material then choose "indigo/pink" then yes, yes -->
+<mat-sidenav-container>
+  <mat-sidenav #drawer fixedInViewport="false" [opened]="false" class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home"><mat-icon>input</mat-icon><span style="padding-left: 15px;">Home</span></a>
+      <a mat-list-item routerLink="/mycourses"><mat-icon>book</mat-icon><span style="padding-left: 15px;">MyCourses</span></a>
+      <a mat-list-item >Settings</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-toolbar style="position: relative; background-color:#a5ca56;">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>calendar_today</mat-icon>
+    </button>
+    <span routerLink="/home" style="flex: 1 1 auto;">StudyCalendar</span>
+    <span class="example-spacer"></span>
+    <span>Joana Pereira Silva 90126</span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/testar-signin">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </mat-toolbar>
   <router-outlet></router-outlet>
-</div>
-<mat-nav-list class="sidenav-list">
-  <form class="example" action="action_page.php" style="margin-top: 17px">
-    <mat-icon style="height: 100%; width: 100px; position: fixed; left: 0; margin-left: 17px; margin-top: 10px">search</mat-icon>
-    <input type="text" placeholder="Search.." name="search">
-  </form>
-  <br>
-  <hr size=1 style="color: black;">
-  <br>
-  <a mat-list-item routerLink="/home">
-    <mat-icon>input</mat-icon>
-    <span>Home</span>
-  </a>
-  <br>
-  <hr size=1 style="color: black;">
-  <br>
-  <a mat-list-item routerLink="/mycourses">
-    <mat-icon>book</mat-icon>
-    <span>My Courses</span>
-  </a>
-  <br>
-  <hr size=1 style="color: black;">
-  <br>
-  <a mat-list-item style="position:absolute; bottom:87px;" mat-list-item>
-      <mat-icon>settings</mat-icon>
-      <span>Settings</span>
-  </a>
-</mat-nav-list>
+</mat-sidenav-container>

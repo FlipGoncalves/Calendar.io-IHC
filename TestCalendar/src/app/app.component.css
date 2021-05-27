@@ -1,28 +1,15 @@
-  
-  mat-toolbar > span {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  .navbar {
-    width: 100%;
-    border-bottom-style: solid;
-    border-bottom-color:black;
-    text-align: center;
-    background-color: #a5ca56;
-  }
-
-  html,
 body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
-body {
-	min-height: 100vh;
+	flex: 1 1 auto;
 	background-color: #e5e5e5;
 	font-family: 'Roboto', sans-serif;
+}
+
+.sidenav {
+	z-index: 4; 
+	position: absolute;
+	width: 350px;
+	height: 100%;
+	background-color: #b5d86b;
 }
 
 .app-header {
@@ -104,7 +91,6 @@ body {
 
 .main-wrapper mat-card-header mat-card-title {
 	font-size: 30px;
-	margin: 0;
 }
 
 .main-wrapper .mat-card {
@@ -121,6 +107,10 @@ body {
 	padding: 0.8375em 0;
 }
 
-.example-spacer {
+.mat-spacer{
 	flex: 1 1 auto;
+  }
+  
+  .content {
+	margin-top: 58px
   }
