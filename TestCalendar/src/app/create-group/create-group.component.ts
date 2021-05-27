@@ -13,22 +13,23 @@ export class CreateGroupComponent implements OnInit {
     private cartService: CartService,
   ) {}
 
-  displayedColumns: string[] = ['cadeira', 'pratica', 'grupo'];
+  displayedColumns: string[] = ['cadeira', 'grupo'];
   public cadeiras: any = this.cartService.getGrupos();
   public dataSource: any = this.cadeiras;
+  public groups: any = this.cartService.getGroups();
   public course: string = this.cartService.getCourse();
   public showContainer: boolean = false;
   public selec: string = "";
   public people: any = this.cartService.getAlunos();
+  public people_groups: any = this.cartService.getPeople_groups();
 
   public ngOnInit() {
-    this.cadeiras = this.cartService.getGrupos();
-    this.dataSource = this.forloop();
+    this.groups = this.forloop();
   }
 
   forloop() {
     let array: any = [];
-    for (let item of this.cadeiras) {
+    for (let item of this.groups) {
       if (item.cadeira === this.course) {
         array.push(item)
       }
@@ -45,15 +46,15 @@ export class CreateGroupComponent implements OnInit {
 
   setAll(selected: boolean) {
     this.allComplete = selected;
-    this.dataSource.forEach((t: any) => t.selected = selected);
+    this.groups.forEach((t: any) => t.selected = selected);
   }
 
   open() {
     const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
     modal.style.display = "block";
-    for (let item of this.dataSource) {
+    for (let item of this.groups) {
       if (item.selected == true) {
-        this.selec += (item.turma + " - " + item.grupo) + "; ";
+        this.selec += (item.cadeira + " " + item.grupo) + "; ";
       }
     }
     this.showContainer = true;
@@ -68,7 +69,20 @@ export class CreateGroupComponent implements OnInit {
   setAllPeople(selected: boolean) {
     alert(selected)
     this.allCompletePeople = selected;
-    this.people.forEach((t: any) => t.selected = selected);
+    this.people_groups.forEach((t: any) => t.selected = selected);
+  }
+
+  people_choices() {
+    let array: any = [];
+    for (let item of this.people_groups) {
+      for (let i of this.groups) {
+        if (item.grupo == i.grupo && i.selected==true && item.cadeira == this.course) {
+          array.push(item);
+        }
+      }
+      
+    }
+    return array;
   }
 
 }
