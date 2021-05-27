@@ -7,6 +7,28 @@ export class CartService {
   items: any = [
     {title: "ferias", date: "2021-05-12"}
   ];
+
+  groups: any = [
+    {cadeira: "IHC", grupo: "TP1", selected: false},
+    {cadeira: "IHC", grupo: "P1", selected: false},
+    {cadeira: "IHC", grupo: "P2", selected: false},
+    {cadeira: "IHC", grupo: "P3", selected: false},
+  ]
+
+  people_groups: any = [
+    {name: "Filipe", cadeira: "IHC", grupo: "P3", selected: false},
+    {name: "Eva", cadeira: "IHC", grupo: "P3", selected: false},
+    {name: "Pedro", cadeira: "IHC", grupo: "P3", selected: false},
+    {name: "Rodrigo", cadeira: "IHC", grupo: "P2", selected: false},
+    {name: "Tomas", cadeira: "IHC", grupo: "P1", selected: false},
+  ]
+
+  subgroups: any = [
+  ]
+
+  people_subgroups: any = [
+  ]
+
   pessoas: any = [
     {name: "filipe", cadeira: "IHC", turma: "P3", grupo: "G2", selected: false},
     {name: "eva", cadeira: "IHC", turma: "P3", grupo: "G2", selected: false},
@@ -25,6 +47,7 @@ export class CartService {
     {cadeira: "IHC", turma: "P2", grupo: "G4", selected: false},
   ];
 
+
   data: string = "";
   course: string = "";
 
@@ -42,6 +65,14 @@ export class CartService {
 
   getGrupos() {
     return this.cadeiras;
+  }
+
+  getGroups() {
+    return this.groups;
+  }
+
+  getPeople_groups() {
+    return this.people_groups;
   }
 
   clearCart() {
