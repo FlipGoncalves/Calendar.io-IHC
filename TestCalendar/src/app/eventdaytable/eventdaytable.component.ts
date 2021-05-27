@@ -44,8 +44,14 @@ export class EventdaytableComponent implements OnInit {
     for (let item of this.items) {
       let startdate = new Date(item.startdate)
       let enddate = new Date(item.enddate)
-      if (startdate <= newDate && newDate <= enddate) {
+      let repetition = item.repetition;
+      if ((startdate <= newDate && newDate <= enddate)) {
         array.push(item)
+      }
+      if (+repetition) {
+        if (startdate.getDate()+(+repetition) <= newDate.getDate() && startdate.getDate()+(+repetition) >= newDate.getDate()) {
+          array.push(item)
+        }
       }
     }
     return array;
