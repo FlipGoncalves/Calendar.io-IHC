@@ -1,6 +1,7 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
+//import {Router} from '@angular/router'; // import router from angular router
 
 @Component({
   selector: 'app-courses',
@@ -10,6 +11,7 @@ import { CartService } from '../cart.service';
 export class CoursesComponent implements OnInit {
 
   constructor(
+    //private route:Router,
     private cartService: CartService
   ) { }
 
@@ -23,8 +25,8 @@ export class CoursesComponent implements OnInit {
   }
 
   /*
-  routerLink(cadeira: string, grupo: string){
-    return cadeira + " " + grupo;
+  go(item: any){
+    this.route.navigate(['/', 'mycourses', item.cadeira + " " + item.grupo]);
   }*/
 
 }
