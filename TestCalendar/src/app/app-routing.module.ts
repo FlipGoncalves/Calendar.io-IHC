@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'ihc', component: IhcComponent},
   { path: 'pds', component: PdsComponent },
   { path: 'bd', component: BdComponent },
-  { path: 'ihc_p3', component: IhcP3Component},
+  { path: 'IHC P3', component: IhcP3Component},
   { path: 'pds_p3', component: PdsP3Component},
   { path: 'bd_p3', component: BdP3Component},
   { path: '', component: CoursesComponent},

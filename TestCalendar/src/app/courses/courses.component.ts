@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 
@@ -12,11 +13,18 @@ export class CoursesComponent implements OnInit {
     private cartService: CartService
   ) { }
 
+  public groups: any = this.cartService.getGroups();
+
   ngOnInit(): void {
   }
 
   onclick(course: string): void {
     this.cartService.setCourse(course)
   }
+
+  /*
+  routerLink(cadeira: string, grupo: string){
+    return cadeira + " " + grupo;
+  }*/
 
 }

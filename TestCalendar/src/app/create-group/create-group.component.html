@@ -29,7 +29,7 @@
                 <div class="item">
                   <p>Group's name:</p>
                   <div>
-                    <input type="text" name="name" placeholder="Group's name"/>
+                    <input type="text" name="name" placeholder="Group's name" [(ngModel)]="nameNewGroup"/>
                   </div>
                 </div>
                 <div class="item">
@@ -52,7 +52,7 @@
                   </section>
                 </div>
                 <div class="example-button-row">
-                  <a mat-raised-button routerLink="/mycourses">Cancel</a>
+                  <a mat-raised-button (click)="close()">Cancel</a>
                   <a mat-raised-button (click)="save()" routerLink="/mycourses">Save</a>
                 </div>
               </form>
