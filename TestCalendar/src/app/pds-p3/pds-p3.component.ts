@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-pds-p3',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PdsP3Component implements OnInit {
 
-  constructor() { }
+  constructor(
+    private cartService: CartService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  setEvent(type: string) {
+    this.cartService.nextEventsetType(type);
   }
 
 }

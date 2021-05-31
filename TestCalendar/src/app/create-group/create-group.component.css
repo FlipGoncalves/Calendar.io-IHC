@@ -1,3 +1,7 @@
+li {
+  display:inline;
+}
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -14,8 +18,10 @@
 .modal-content {
   background-color: #fefefe;
   border: 1px solid #888;
-  margin: 40px auto; /* centered */
-  width: 80%; /* Could be more or less, depending on screen size */
+  margin-top: 2%;
+  margin-left: 2.5%;
+  margin-bottom: 2%;
+  width: 95%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */

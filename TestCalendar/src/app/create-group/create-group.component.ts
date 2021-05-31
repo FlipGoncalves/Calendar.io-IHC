@@ -42,9 +42,11 @@ export class CreateGroupComponent implements OnInit {
   allComplete: boolean = false;
   allCompletePeople: boolean = false;
 
-  setAll(selected: boolean) {
-    this.allComplete = selected;
-    this.groups.forEach((t: any) => t.selected = selected);
+  setAll() {
+    if(this.allComplete)
+      this.allComplete = false;
+    else this.allComplete = true;
+    this.groups.forEach((t: any) => t.selected = this.allComplete);
   }
 
   open() {

@@ -49,7 +49,7 @@ export class EventdaytableComponent implements OnInit {
         array.push(item)
       }
       if (+repetition) {
-        if (startdate.getDate()+(+repetition) <= newDate.getDate() && startdate.getDate()+(+repetition) >= newDate.getDate()) {
+        if (startdate.getDate()+(+repetition) <= newDate.getDate() && enddate.getDate()+(+repetition) >= newDate.getDate()) {
           array.push(item)
         }
       }

@@ -12,11 +12,16 @@ export class CoursesComponent implements OnInit {
     private cartService: CartService
   ) { }
 
-  ngOnInit(): void {
-  }
-
+  public showClasses: boolean = false;
   onclick(course: string): void {
     this.cartService.setCourse(course)
+    this.showClasses = true;
   }
 
+  toggle() {
+    this.showClasses = false;
+  }
+
+  public ngOnInit() {
+  }
 }

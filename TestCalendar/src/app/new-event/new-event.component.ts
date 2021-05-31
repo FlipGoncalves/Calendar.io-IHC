@@ -31,7 +31,7 @@ export class NewEventComponent implements OnInit {
 
   clickme() {
     this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time,
-                      endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes}
+                      endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, type: ""}
     this.addToCart(this.product);
   }
 

@@ -1,22 +1,19 @@
-<div style="padding-left: 10%;">
-<section class="example-section">
-  <span class="example-list-section">
-    <mat-checkbox class="example-margin" (change)="setAll($event.checked)">Check all</mat-checkbox>
-  </span>
-  <span class="example-list-section">
-    <li *ngFor="let item of groups">
-      <mat-checkbox class="example-margin" [(ngModel)]="item.selected">{{item.cadeira + " " + item.grupo}}</mat-checkbox>
-    </li>
-  </span>
-</section>
-<button (click)="open()">Create Groups</button>
+<div style="padding-top:2%" align="center">
+  <a mat-raised-button (click)="setAll()">Check all</a>
+  <section class="example-section">
+    <span class="example-list-section">
+      <li *ngFor="let item of groups" style="list-style-type:none">
+        <mat-checkbox class="example-margin" style="margin: 10px 10px 10px 10px;" [(ngModel)]="item.selected">{{item.cadeira + " " + item.grupo}}</mat-checkbox>
+      </li>
+    </span>
+  </section>
+  <a mat-raised-button style="margin-top:2%" (click)="open()">Create Groups</a>
 </div>
 
-<div style="padding-left: 26%;" id="myModal" class="modal">
+<div id="myModal" class="modal">
   <div class="modal-content">
-      <button (click)="close()" id="close"><mat-icon>keyboard_backspace</mat-icon></button>
       <div *ngIf="showContainer" id="container">
-        <div style="padding-left: 10%; padding-top: 2%;">
+        <div style="padding-left: 2.5%; padding-top: 2%; padding-right: 2.5%; padding-bottom: 2%;">
           <div class="testbox">
               <form action="/">
                 <h5 style="text-align: center;">New Group</h5>
@@ -52,7 +49,7 @@
                   </section>
                 </div>
                 <div class="example-button-row">
-                  <a mat-raised-button routerLink="/mycourses">Cancel</a>
+                  <a mat-raised-button (click)="close()">Back</a>
                   <a mat-raised-button (click)="save()" routerLink="/mycourses">Save</a>
                 </div>
               </form>

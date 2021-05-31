@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   items: any = [
-    {title: "ferias", startdate: "2021-05-12", enddate: "2021-05-12", starttime: "19:20", endtime: "19:40", reminder: "none", repetition: "7", notes: ""}
+    {title: "ferias", startdate: "2021-05-12", enddate: "2021-05-12", starttime: "19:20", endtime: "19:40", reminder: "none", repetition: "7", notes: "", type:""}
   ];
 
   groups: any = [
@@ -13,6 +13,11 @@ export class CartService {
     {cadeira: "IHC", grupo: "P1", selected: false},
     {cadeira: "IHC", grupo: "P2", selected: false},
     {cadeira: "IHC", grupo: "P3", selected: false},
+    {cadeira: "BD", grupo: "TP1", selected: false},
+    {cadeira: "BD", grupo: "P1", selected: false},
+    {cadeira: "PDS", grupo: "TP1", selected: false},
+    {cadeira: "PDS", grupo: "TP2", selected: false},
+    {cadeira: "PDS", grupo: "P1", selected: false},
   ]
 
   people_groups: any = [
@@ -51,8 +56,18 @@ export class CartService {
   data: string = "";
   course: string = "";
 
+  type: string="";
+  next_type: boolean = false;
+  nextEventsetType(type: string) {
+    this.type = type;
+    this.next_type = true;
+  }
+
   addToCart(product: any) {
+    if(this.next_type)
+      product.type = this.type
     this.items.push(product);
+    alert(product.type)
   }
 
   getItems() {
