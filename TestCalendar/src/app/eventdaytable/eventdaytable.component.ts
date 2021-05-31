@@ -65,7 +65,6 @@ export class EventdaytableComponent implements OnInit {
         let startdate = new Date(item.startdate)
         let enddate = new Date(item.enddate)
         let repetition = item.repetition;
-        alert("Cadeira do evento: " + item.cadeira + ", Cadeira que está filtrada:  " + this.cartService.groupFilter.cadeira + "grupo do evento " +item.grupo + "grupo que está filtrada:" + this.cartService.groupFilter.grupo  )
         if (item.cadeira == this.cartService.groupFilter.cadeira && item.grupo == this.cartService.groupFilter.grupo) {
           if ((startdate <= newDate && newDate <= enddate)) {
             array.push(item)

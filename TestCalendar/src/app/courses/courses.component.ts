@@ -1,7 +1,6 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
-//import {Router} from '@angular/router'; // import router from angular router
 
 @Component({
   selector: 'app-courses',

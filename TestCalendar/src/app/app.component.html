@@ -2,7 +2,7 @@
   <mat-sidenav #drawer fixedInViewport="false" [opened]="false" class="sidenav" style="margin-top:64px">
     <mat-nav-list>
       <a mat-list-item (click)="drawer.toggle()"><mat-icon>calendar_today</mat-icon><span style="padding-left: 15px;">Menu</span></a>
-      <a mat-list-item routerLink="/home"><mat-icon>input</mat-icon><span style="padding-left: 15px;">Home</span></a>
+      <a mat-list-item (click)="desactivateFiltergroups()" routerLink="/home"><mat-icon>input</mat-icon><span style="padding-left: 15px;">Home</span></a>
       <a mat-list-item routerLink="/mycourses"><mat-icon>book</mat-icon><span style="padding-left: 15px;">MyCourses</span></a>
       <a mat-list-item >Settings</a>
     </mat-nav-list>
