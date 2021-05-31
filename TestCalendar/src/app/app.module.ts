@@ -53,7 +53,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
-import { MygroupsComponent } from './mygroups/mygroups.component';
+import { GroupComponent } from './group/group.component';
 import { CoursesComponent } from './courses/courses.component';
 import { IhcComponent } from './ihc/ihc.component';
 import { IhcP3Component } from './ihc-p3/ihc-p3.component';
@@ -78,7 +78,7 @@ import { IgxButtonModule, IgxToggleModule } from "igniteui-angular";
     SidenavComponent,
     EventdaytableComponent,
     Eventday15maioComponent,
-    MygroupsComponent,
+    GroupComponent,
     CoursesComponent,
     IhcComponent,
     IhcP3Component,

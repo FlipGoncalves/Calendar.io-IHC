@@ -1,5 +1,7 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
+//import {Router} from '@angular/router'; // import router from angular router
 
 @Component({
   selector: 'app-courses',
@@ -12,7 +14,12 @@ export class CoursesComponent implements OnInit {
     private cartService: CartService
   ) { }
 
+  public groups: any = this.cartService.getGroups();
   public showClasses: boolean = false;
+
+  ngOnInit(): void {
+  }
+
   onclick(course: string): void {
     this.cartService.setCourse(course)
     this.showClasses = true;
@@ -20,8 +27,5 @@ export class CoursesComponent implements OnInit {
 
   toggle() {
     this.showClasses = false;
-  }
-
-  public ngOnInit() {
   }
 }

@@ -1,3 +1,4 @@
+import { GroupComponent } from './group/group.component';
 import { CreateGroupComponent } from './create-group/create-group.component';
 import { TestarSigninComponent } from './testar-signin/testar-signin.component';
 import { RegisterComponent } from './register/register.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'ihc', component: IhcComponent},
   { path: 'pds', component: PdsComponent },
   { path: 'bd', component: BdComponent },
-  { path: 'ihc_p3', component: IhcP3Component},
+  { path: 'group', component: GroupComponent},
+  //{ path: 'IHC P3', component: IhcP3Component},
   { path: 'pds_p3', component: PdsP3Component},
   { path: 'bd_p3', component: BdP3Component},
   { path: '', component: CoursesComponent},

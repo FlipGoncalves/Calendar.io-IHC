@@ -1,0 +1,25 @@
+<div style="padding-left: 10%;">
+    <h2 class="titulo" style="text-align: center; font-size: 25px; color: #000000;" >Interacção Humano-Computador</h2>
+    <mat-divider></mat-divider>
+    <div style="background-color: #cdcbd3;">
+        <button mat-icon-button routerLink="/mycourses"><mat-icon>keyboard_backspace</mat-icon></button>
+        <span class="titulo" style="font-size: 20px; color: #59585d;" >Groups</span>
+    </div>
+    <div style="padding-top: 2%; padding-left:5%">
+        <span class="titulo" style="font-size: 20px; color: #000000;" >IHC P3</span>
+    </div>
+    <app-calendar></app-calendar>
+    <div style="padding-left: 10%; padding-top: 5%;">
+        <mat-divider></mat-divider>
+        <section>
+          <div class="example-button-row">
+            <a mat-raised-button routerLink="/new_event">Create Event</a>
+            <a mat-raised-button routerLink="/subgroups">Subgroups</a>
+            <a mat-raised-button routerLink="/create_subgroup">Create Subgroups</a>
+            <a mat-raised-button routerLink="/edit_group">Edit Group</a>
+          </div>
+        </section>
+        <router-outlet></router-outlet>
+      </div>
+    <router-outlet></router-outlet>
+  </div>

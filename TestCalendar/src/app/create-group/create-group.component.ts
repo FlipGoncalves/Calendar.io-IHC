@@ -20,6 +20,8 @@ export class CreateGroupComponent implements OnInit {
   public selec: string = "";
   public people: any = this.cartService.getAlunos();
   public people_groups: any = this.cartService.getPeople_groups();
+  public options_people: any;
+  nameNewGroup: string = "";
 
   public ngOnInit() {
     this.groups = this.forloop();
@@ -77,16 +79,27 @@ export class CreateGroupComponent implements OnInit {
     for (let item of this.people_groups) {
       for (let i of this.groups) {
         if (item.grupo == i.grupo && i.selected==true && item.cadeira == this.course) {
-          array.push(item);
+          if (!array.some((e: { name: any; }) => e.name == item.name)) {
+            array.push(item);
+          }
         }
       }
       
     }
-    return array;
+    this.options_people = array;
+    return this.options_people;
   }
 
   save() {
+    let array: any = [];
+    for (let item of this.options_people) {
+      if (item.selected==true) {
+        array.push(item);
+      }
+    }
     
+    this.cartService.addGroup(array, this.nameNewGroup);
+
   }
 
 }

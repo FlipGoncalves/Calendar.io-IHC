@@ -6,6 +6,9 @@
   <mat-tab label="Interação Humano-Computador">
     <section style="margin:auto">
       <div class="example-button-row">
+        <li *ngFor="let item of groups">
+        <a mat-raised-button routerLink="/group">{{item.cadeira + " " + item.grupo}}</a>
+        </li>
         <a mat-raised-button routerLink="/ihc_tp1">IHC TP1</a>
         <a mat-raised-button routerLink="/ihc_p1">IHC P1</a>
         <a mat-raised-button routerLink="/ihc_p2">IHC P2</a>

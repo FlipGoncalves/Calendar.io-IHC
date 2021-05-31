@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -109,5 +110,13 @@ export class CartService {
 
   getCourse() {
     return this.course;
+  }
+
+  addGroup(array: any, nameGroup: string) {
+    let tmp: any = array[0];
+    this.groups.push({cadeira: tmp.cadeira, grupo: nameGroup, selected: false});
+    for (let item of array){
+      this.people_groups.push(item);
+    } 
   }
 }
