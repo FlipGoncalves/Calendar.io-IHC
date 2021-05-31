@@ -39,21 +39,46 @@ export class EventdaytableComponent implements OnInit {
   }
 
   forloop() {
-    let array: any = [];
-    let newDate = new Date(this.date);
-    for (let item of this.items) {
-      let startdate = new Date(item.startdate)
-      let enddate = new Date(item.enddate)
-      let repetition = item.repetition;
-      if ((startdate <= newDate && newDate <= enddate)) {
-        array.push(item)
-      }
-      if (+repetition) {
-        if (startdate.getDate()+(+repetition) <= newDate.getDate() && enddate.getDate()+(+repetition) >= newDate.getDate()) {
+    if (this.cartService.filter == false) {
+      this.items = this.cartService.getItems();
+      let array: any = [];
+      let newDate = new Date(this.date);
+      for (let item of this.items) {
+        let startdate = new Date(item.startdate)
+        let enddate = new Date(item.enddate)
+        let repetition = item.repetition;
+        if ((startdate <= newDate && newDate <= enddate)) {
           array.push(item)
         }
+        if (+repetition) {
+          if (startdate.getDate() + (+repetition) <= newDate.getDate() && enddate.getDate() + (+repetition) >= newDate.getDate()) {
+            array.push(item)
+          }
+        }
       }
+      return array;
+    }else{
+      this.items = this.cartService.eventos_groups;
+      let array: any = [];
+      let newDate = new Date(this.date);
+      for (let item of this.items) {
+        let startdate = new Date(item.startdate)
+        let enddate = new Date(item.enddate)
+        let repetition = item.repetition;
+        alert("Cadeira do evento: " + item.cadeira + ", Cadeira que está filtrada:  " + this.cartService.groupFilter.cadeira + "grupo do evento " +item.grupo + "grupo que está filtrada:" + this.cartService.groupFilter.grupo  )
+        if (item.cadeira == this.cartService.groupFilter.cadeira && item.grupo == this.cartService.groupFilter.grupo) {
+          if ((startdate <= newDate && newDate <= enddate)) {
+            array.push(item)
+          }
+          if (+repetition) {
+            if (startdate.getDate() + (+repetition) <= newDate.getDate() && enddate.getDate() + (+repetition) >= newDate.getDate()) {
+              array.push(item)
+            }
+          }
+        }
+      }
+      return array;
     }
-    return array;
   }
+
 }

@@ -30,12 +30,13 @@ export class NewEventComponent implements OnInit {
   notes: string = "";
 
   clickme() {
-    this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time,
-                      endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, type: ""}
-    this.addToCart(this.product);
-  }
-
-  addToCart(product: any) {
-    this.cartService.addToCart(product);
+    if (this.cartService.filter == false) {
+      this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time, endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, type: ""};
+      this.cartService.addToCart(this.product);  
+    }else{
+      this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time, endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, type: "", cadeira: "", grupo: ""};
+      this.cartService.addToCartInGroup(this.product);
+    }
+    
   }
 }

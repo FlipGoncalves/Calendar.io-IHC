@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-group',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupComponent implements OnInit {
 
-  constructor() { }
+  constructor( private cartService: CartService) { }
 
   ngOnInit(): void {
+  }
+
+  public filteractivated: any = this.cartService.groupFilter;
+
+  getfilteractivated () {
+    let filteractivated: any = this.cartService.groupFilter;
+    return filteractivated.cadeira + " " + filteractivated.grupo;
   }
 
 }

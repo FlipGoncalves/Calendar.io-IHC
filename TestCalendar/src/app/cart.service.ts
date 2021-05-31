@@ -10,15 +10,15 @@ export class CartService {
   ];
 
   groups: any = [
-    {cadeira: "IHC", grupo: "TP1", selected: false},
-    {cadeira: "IHC", grupo: "P1", selected: false},
-    {cadeira: "IHC", grupo: "P2", selected: false},
-    {cadeira: "IHC", grupo: "P3", selected: false},
-    {cadeira: "BD", grupo: "TP1", selected: false},
-    {cadeira: "BD", grupo: "P1", selected: false},
-    {cadeira: "PDS", grupo: "TP1", selected: false},
-    {cadeira: "PDS", grupo: "TP2", selected: false},
-    {cadeira: "PDS", grupo: "P1", selected: false},
+    {cadeira: "IHC", grupo: "TP1", filter:false, selected: false},
+    {cadeira: "IHC", grupo: "P1", filter:false, selected: false},
+    {cadeira: "IHC", grupo: "P2", filter:false, selected: false},
+    {cadeira: "IHC", grupo: "P3", filter:false, selected: false},
+    {cadeira: "BD", grupo: "TP1", filter:false, selected: false},
+    {cadeira: "BD", grupo: "P1", filter:false, selected: false},
+    {cadeira: "PDS", grupo: "TP1", filter:false, selected: false},
+    {cadeira: "PDS", grupo: "TP2", filter:false, selected: false},
+    {cadeira: "PDS", grupo: "P1", filter:false, selected: false},
   ]
 
   people_groups: any = [
@@ -28,6 +28,8 @@ export class CartService {
     {name: "Rodrigo", cadeira: "IHC", grupo: "P2", selected: false},
     {name: "Tomas", cadeira: "IHC", grupo: "P1", selected: false},
   ]
+
+  eventos_groups: any = []
 
   subgroups: any = [
   ]
@@ -56,6 +58,8 @@ export class CartService {
 
   data: string = "";
   course: string = "";
+  public filter: boolean = false;
+  public groupFilter: any;
 
   type: string="";
   next_type: boolean = false;
@@ -67,6 +71,16 @@ export class CartService {
   addToCart(product: any) {
     if(this.next_type)
       product.type = this.type
+    this.items.push(product);
+    alert(product.type)
+  }
+
+  addToCartInGroup(product: any) {
+    if(this.next_type)
+      product.type = this.type
+    product.cadeira = this.groupFilter.cadeira;
+    product.grupo = this.groupFilter.grupo;
+    this.eventos_groups.push(product)
     this.items.push(product);
     alert(product.type)
   }
@@ -114,9 +128,28 @@ export class CartService {
 
   addGroup(array: any, nameGroup: string) {
     let tmp: any = array[0];
-    this.groups.push({cadeira: tmp.cadeira, grupo: nameGroup, selected: false});
+    this.groups.push({cadeira: tmp.cadeira, grupo: nameGroup, filter:false, selected: false});
     for (let item of array){
       this.people_groups.push(item);
     } 
+  }
+
+  setFilterTrue(value: boolean, cadeira:string, grupo:string) {
+    this.filter=value;
+    for (let index = 0; index < this.groups.length; index++) {
+      const item = this.groups[index];
+      if (item.grupo == grupo && item.cadeira == cadeira) {
+        this.groups[index].filter = true;
+        this.groupFilter = item;
+      }
+      else{
+        this.groups[index].filter = false;
+      }
+      
+    }
+  }
+
+  setFilterFalse(value: boolean) {
+    this.filter=value;
   }
 }

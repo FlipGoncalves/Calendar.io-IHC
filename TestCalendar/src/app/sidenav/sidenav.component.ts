@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  constructor(  private cartService: CartService) { }
 
   ngOnInit(): void {
+  }
+
+  desactivateFiltergroups() {
+    alert("Filtro desativado")
+    this.cartService.setFilterFalse(false);
   }
 
 }
