@@ -71,7 +71,7 @@ export class CreateGroupComponent implements OnInit {
 
   setAllPeople(selected: boolean) {
     this.allCompletePeople = selected;
-    this.people_groups.forEach((t: any) => t.selected = selected);
+    this.options_people.forEach((t: any) => t.selected = selected);
   }
 
   people_choices() {

@@ -11,12 +11,9 @@
     <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
       <mat-icon>calendar_today</mat-icon>
     </button>
-    <span routerLink="/home" style="flex: 1 1 auto;">StudyCalendar</span>
+    <span routerLink="/home" style="flex: 1 1 auto;" (click)="desactivateFiltergroups()">StudyCalendar</span>
     <span class="example-spacer"></span>
     <span>Joana Pereira Silva 90126</span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/testar-signin">
       <mat-icon>account_circle</mat-icon>
     </button>

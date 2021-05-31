@@ -1,16 +1,15 @@
-<div style="padding-left: 10%;">
+<div style="padding-top:2%; padding-left:2.5%; padding-right:2.5%; padding-bottom: 2%;">
     <h2 class="titulo" style="text-align: center; font-size: 25px; color: #000000;" >Interacção Humano-Computador</h2>
     <mat-divider></mat-divider>
     <div style="background-color: #cdcbd3;">
         <button mat-icon-button routerLink="/mycourses"><mat-icon>keyboard_backspace</mat-icon></button>
-        <span class="titulo" style="font-size: 20px; color: #59585d;" >Groups</span>
+        <span class="titulo" style="font-size: 20px; color: #59585d;" >Courses</span>
     </div>
     <div style="padding-top: 2%; padding-left:5%">
-        <span class="titulo" style="font-size: 20px; color: #000000;" >{{getfilteractivated ()}}</span>
+        <span class="titulo" style="font-size: 20px; color: #000000;" >Group: {{getfilteractivated ()}}</span>
     </div>
     <app-calendar></app-calendar>
-    <div style="padding-left: 10%; padding-top: 5%;">
-        <mat-divider></mat-divider>
+    <div style="padding-left: 10%; padding-top: 3%;">
         <section>
           <div class="example-button-row">
             <a mat-raised-button routerLink="/new_event">Create Event</a>

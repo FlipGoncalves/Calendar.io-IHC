@@ -6,13 +6,11 @@
   <mat-tab label="Interação Humano-Computador">
     <section style="margin:auto">
       <div class="example-button-row">
-        <li *ngFor="let item of groups">
-        <a mat-raised-button routerLink="/group" (click)="activateFiltergroups(item)">{{item.cadeira + " " + item.grupo}}</a>
-        </li>
-        <a mat-raised-button routerLink="/ihc_tp1">IHC TP1</a>
-        <a mat-raised-button routerLink="/ihc_p1">IHC P1</a>
-        <a mat-raised-button routerLink="/ihc_p2">IHC P2</a>
-        <a mat-raised-button routerLink="/ihc_p3">IHC P3</a>
+        <div *ngFor="let item of groups">
+          <div *ngIf="validate(item, 'IHC')">
+            <a mat-raised-button routerLink="/group" (click)="activateFiltergroups(item)">{{item.cadeira + " " + item.grupo}}</a>
+          </div>
+        </div>
         <a mat-raised-button (click)="onclick('IHC')" style="color: #a5ca56;">
             <mat-icon>create_new_folder</mat-icon>
             <a style="margin-left: 2%;">Create a new group</a>
@@ -23,10 +21,11 @@
   <mat-tab label="Padrões e Desenvolvimento de Software">
     <section style="margin:auto">
       <div class="example-button-row">
-        <a mat-raised-button routerLink="/pds_tp1">PDS TP1</a>
-        <a mat-raised-button routerLink="/pds_p1">PDS P1</a>
-        <a mat-raised-button routerLink="/pds_p2">PDS P2</a>
-        <a mat-raised-button routerLink="/pds_p3">PDS P3</a>
+        <div *ngFor="let item of groups">
+          <div *ngIf="validate(item, 'PDS')">
+            <a mat-raised-button routerLink="/group" (click)="activateFiltergroups(item)">{{item.cadeira + " " + item.grupo}}</a>
+          </div>
+        </div>
         <a mat-raised-button (click)="onclick('PDS')" style="color: #a5ca56;">
             <mat-icon>create_new_folder</mat-icon>
             <a style="margin-left: 2%;">Create a new group</a>
@@ -37,10 +36,11 @@
   <mat-tab label="Base de Dados">
     <section style="margin:auto">
       <div class="example-button-row">
-        <a mat-raised-button routerLink="/bd_tp1">BD TP1</a>
-        <a mat-raised-button routerLink="/bd_p1">BD P1</a>
-        <a mat-raised-button routerLink="/bd_p2">BD P2</a>
-        <a mat-raised-button routerLink="/bd_p3">BD P3</a>
+        <div *ngFor="let item of groups">
+          <div *ngIf="validate(item, 'BD')">
+            <a mat-raised-button routerLink="/group" (click)="activateFiltergroups(item)">{{item.cadeira + " " + item.grupo}}</a>
+          </div>
+        </div>
         <a mat-raised-button (click)="onclick('BD')" style="color: #a5ca56;">
             <mat-icon>create_new_folder</mat-icon>
             <a style="margin-left: 2%;">Create a new group</a>

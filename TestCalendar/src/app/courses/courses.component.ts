@@ -27,9 +27,15 @@ export class CoursesComponent implements OnInit {
   toggle() {
     this.showClasses = false;
   }
-
   
   activateFiltergroups(item:any) {
     this.cartService.setFilterTrue(true,item.cadeira,item.grupo );
+  }
+
+  validate(item:any, cadeira:string) {
+    if (item.cadeira==cadeira) {
+      return true;
+    }
+    return false;
   }
 }

@@ -43,6 +43,7 @@ export class EventdaytableComponent implements OnInit {
       this.items = this.cartService.getItems();
       let array: any = [];
       let newDate = new Date(this.date);
+      newDate.setDate(newDate.getDate() + 1); //??
       for (let item of this.items) {
         let startdate = new Date(item.startdate)
         let enddate = new Date(item.enddate)
@@ -61,6 +62,7 @@ export class EventdaytableComponent implements OnInit {
       this.items = this.cartService.eventos_groups;
       let array: any = [];
       let newDate = new Date(this.date);
+      newDate.setDate(newDate.getDate() + 1); //??
       for (let item of this.items) {
         let startdate = new Date(item.startdate)
         let enddate = new Date(item.enddate)
