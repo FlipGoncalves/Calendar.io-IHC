@@ -1,4 +1,3 @@
-import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,8 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   items: any = [
-    {title: "ferias", startdate: "2021-05-12", enddate: "2021-05-12", starttime: "19:20", endtime: "19:40", reminder: "none", repetition: "7", notes: "", type:""}
+    {title: "ferias", startdate: "2021-07-01", enddate: "2021-07-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "7", notes: "", type:""}
   ];
+
+  filter_group: any = [
+    {cadeira: "IHC", grupo: ["TP1", "P1", "P2", "P3"]},
+    {cadeira: "PDS", grupo: ["TP1", "P1", "P2", "P3"]},
+    {cadeira: "BD", grupo: ["TP1", "P1", "P2", "P3"]},
+  ]
 
   groups: any = [
     {cadeira: "IHC", grupo: "TP1", filter:false, selected: false},
@@ -23,6 +28,7 @@ export class CartService {
     {cadeira: "PDS", grupo: "P2", filter:false, selected: false},
     {cadeira: "PDS", grupo: "P3", filter:false, selected: false},
   ]
+  
 
   people_groups: any = [
     {name: "Filipe Gonçalves", nmec: "98083", cadeira: "IHC", grupo: "TP1", selected: false},
@@ -60,6 +66,7 @@ export class CartService {
   eventos_groups: any = []
 
   subgroups: any = [
+    {cadeira: "PDS", grupo: "P3", subgrupo: "G1", filter:false, selected: false},
   ]
 
   people_subgroups: any = [

@@ -1,0 +1,20 @@
+<div>
+    <mat-form-field appearance="fill" style="padding-left: 2%">
+        <mat-label>Favorite food</mat-label>
+        <mat-select [(ngModel)]="cadeira">
+            <mat-option *ngFor="let group of cadeiras" [value]="group.cadeira">{{group.cadeira}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="padding-left: 2%">
+          <mat-label>Favorite food</mat-label>
+          <mat-select [(ngModel)]="practical">
+            <mat-option *ngFor="let group of cadeiras.grupo" [value]="group.grupo">{{group.grupo}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-nav-list>
+            <a mat-raised-button (click)="search()"><mat-icon>search</mat-icon><span style="padding-left: 2%">Search</span></a>
+        </mat-nav-list>
+</div>
+
+
+<app-calendar></app-calendar>

@@ -14,6 +14,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CalendarComponent } from './calendar/calendar.component';
 import { CoursesComponent } from './courses/courses.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
@@ -27,7 +29,7 @@ const routes: Routes = [
   { path: 'pds_p3', component: PdsP3Component},
   { path: 'bd_p3', component: BdP3Component},
   { path: '', component: CoursesComponent},
-  { path: 'home', component: CalendarComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'mycourses', component: CoursesComponent },
   { path: 'signin', component: SigninComponent},
   { path: 'register', component: RegisterComponent },

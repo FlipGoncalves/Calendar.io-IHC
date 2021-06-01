@@ -13,6 +13,8 @@ export class GroupComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    public showContainer: boolean = false;
+
     public filteractivated: any = this.cartService.groupFilter;
 
     getfilteractivated() {
@@ -35,4 +37,15 @@ export class GroupComponent implements OnInit {
         return null;
     }
 
+    toggle() {
+        this.showContainer = true;
+        const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
+        modal.style.display = "block"
+    }
+
+    close() {
+        const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
+        modal.style.display = "none";
+        this.showContainer = false;
+    }
 }

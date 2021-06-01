@@ -10,17 +10,17 @@
         <span class="titulo" style="font-size: 20px; color: #000000;" >Group: {{getfilteractivated ()}}</span>
     </div>
   </div>
-    <app-calendar></app-calendar>
-    <div style="padding-top: 3%;" align="center">
-        <section>
-          <div class="example-button-row">
-            <a mat-raised-button routerLink="/new_event">Create Event</a>
-            <a mat-raised-button routerLink="/subgroups">Subgroups</a>
-            <a mat-raised-button routerLink="/create_subgroup">Create Subgroups</a>
-            <a mat-raised-button routerLink="/edit_group">Edit Group</a>
-          </div>
-        </section>
-        <router-outlet></router-outlet>
-      </div>
+  <app-calendar></app-calendar>
+  <div style="padding-top: 3%;" align="center">
+      <section>
+        <div class="example-button-row">
+          <a mat-raised-button routerLink="/new_event">Create Event</a>
+          <a mat-raised-button routerLink="/subgroups">Subgroups</a>
+          <a mat-raised-button routerLink="/create_subgroup">Create Subgroups</a>
+          <a mat-raised-button routerLink="/edit_group">Edit Group</a>
+        </div>
+      </section>
+      <router-outlet></router-outlet>
+    </div>
     <router-outlet></router-outlet>
   </div>
