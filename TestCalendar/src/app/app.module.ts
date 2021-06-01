@@ -70,6 +70,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TestarSigninComponent } from './testar-signin/testar-signin.component';
 import { CreateGroupComponent } from './create-group/create-group.component';
 import { IgxButtonModule, IgxToggleModule } from "igniteui-angular";
+import { ComponentNameComponent } from './component-name/component-name.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +95,8 @@ import { IgxButtonModule, IgxToggleModule } from "igniteui-angular";
     RegisterComponent,
     TestarSigninComponent,
     CreateGroupComponent,
+    ComponentNameComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

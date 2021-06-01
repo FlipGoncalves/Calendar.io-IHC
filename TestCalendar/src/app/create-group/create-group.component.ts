@@ -69,9 +69,11 @@ export class CreateGroupComponent implements OnInit {
     this.showContainer = false;
   }
 
-  setAllPeople(selected: boolean) {
-    this.allCompletePeople = selected;
-    this.options_people.forEach((t: any) => t.selected = selected);
+  setAllPeople() {
+    if(this.allCompletePeople)
+      this.allCompletePeople = false;
+    else this.allCompletePeople = true;
+    this.options_people.forEach((t: any) => t.selected = this.allCompletePeople);
   }
 
   people_choices() {

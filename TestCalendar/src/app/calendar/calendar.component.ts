@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { count } from 'console';
 import { IgxCalendarComponent, IgxDialogComponent } from 'igniteui-angular';
 import { CartService } from '../cart.service';
 import { EventdaytableComponent } from '../eventdaytable/eventdaytable.component';
