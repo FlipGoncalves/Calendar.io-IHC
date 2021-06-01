@@ -1,4 +1,7 @@
+import { ActivatedRoute } from '@angular/router';
+import { CartService } from './../cart.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-signin',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
-  constructor() { }
+  public request = {}
+
+  constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  email: string = "";
+  password: string = "";
+
+  clickme() {
+    this.request = { email: this.email, password: this.password };
+    this.cartService.checkLogin(this.request);
   }
 
 }

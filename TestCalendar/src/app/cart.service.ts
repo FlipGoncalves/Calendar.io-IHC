@@ -83,6 +83,10 @@ export class CartService {
     {cadeira: "IHC", turma: "P2", grupo: "G4", selected: false},
   ];
 
+  usersList: any = [
+    { email: "teacher@ua.pt", password: "12345" },
+    { email: "student@ua.pt", password: "12345" },
+  ];
 
   data: string = "";
   course: string = "";
@@ -111,6 +115,42 @@ export class CartService {
     this.eventos_groups.push(product)
     this.items.push(product);
     alert(product.type)
+  }
+
+  checkLogin(request: any) {
+    //!neste momento o request está fazio ainda, ver melhor isto
+    //! btw os alertas são só para ver isto a funcionar
+    for (let index = 0; index < this.usersList.length; index++) {
+      const element = this.usersList[index];
+      alert(element.email)
+      if (element.email == request.email) {
+        if (element.password == request.password) {
+          alert("A IR PARA A PÁGINA CERTA")
+        } else {
+          alert("Wrong Password")
+        }
+      } else {
+        alert("User not registered")
+      }
+    }
+  }
+
+  registerUser(request: any) {
+    let flag: string = "false";
+    if (this.next_type ) {
+      request.type = this.type;
+      for (let index = 0; index < this.usersList.length; index++) {
+        const element = this.usersList[index];
+        if (element == request) {
+          alert("USER ALREADY EXISTS")
+          flag = "true"
+          break;
+        }
+      }
+      if (flag == "true") {
+        this.usersList.push(request);
+      }
+    }
   }
 
   getItems() {
@@ -172,8 +212,7 @@ export class CartService {
       }
       else{
         this.groups[index].filter = false;
-      }
-      
+      } 
     }
   }
 

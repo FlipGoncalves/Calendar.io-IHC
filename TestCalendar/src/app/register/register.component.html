@@ -8,15 +8,11 @@
   
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username">
+            <input matInput placeholder="Email" [(ngModel)]="email">
           </mat-form-field>
   
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email">
-          </mat-form-field>
-  
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Password">
+            <input matInput type="Password" placeholder="Password" [(ngModel)]="password">
           </mat-form-field>
   
           <mat-form-field class="example-full-width">
@@ -29,7 +25,7 @@
   
         </mat-card-content>
   
-        <button mat-stroked-button color="accent" class="btn-block">Register</button>
+        <button mat-stroked-button color="accent" class="btn-block " (click)="clickme()">Register</button>
   
       </form>
     </mat-card>
