@@ -1,12 +1,9 @@
 <div>
-    <div id="myModal" class="modal">
         <div class="modal-content">
-            <button (click)="close()" id="close"><mat-icon>keyboard_backspace</mat-icon></button>
             <div *ngIf="showMyContainer" id="container">
                 <app-eventdaytable></app-eventdaytable>
             </div>
         </div>
-    </div>
     <article class="sample-column calendar-wrapper" style="margin-top: 50px;">
         <igx-calendar
             #calendar
@@ -14,8 +11,7 @@
             [locale]="locale"
             [weekStart]="1"
             [formatOptions]="formatOptions"
-            [formatViews]="formatViews"
-    >
+            [formatViews]="formatViews">
         </igx-calendar>
     </article> 
 </div>
