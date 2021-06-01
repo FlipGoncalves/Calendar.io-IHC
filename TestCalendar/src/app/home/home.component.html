@@ -1,20 +1,30 @@
 <div>
     <mat-form-field appearance="fill" style="padding-left: 2%">
         <mat-label>Favorite food</mat-label>
-        <mat-select [(ngModel)]="cadeira">
-            <mat-option *ngFor="let group of cadeiras" [value]="group.cadeira">{{group.cadeira}}</mat-option>
+        <mat-select [(ngModel)]="cadeira" (selectionChange)="toggle()">
+            <mat-option *ngFor="let group of group" [value]="group">{{group}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="fill" style="padding-left: 2%">
-          <mat-label>Favorite food</mat-label>
-          <mat-select [(ngModel)]="practical">
-            <mat-option *ngFor="let group of cadeiras.grupo" [value]="group.grupo">{{group.grupo}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-nav-list>
-            <a mat-raised-button (click)="search()"><mat-icon>search</mat-icon><span style="padding-left: 2%">Search</span></a>
-        </mat-nav-list>
+        <mat-label>Favorite food</mat-label>
+        <mat-select [(ngModel)]="practical">
+          <mat-option *ngFor="let group of class" [value]="group">{{group}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-nav-list appearance="fill">
+          <a mat-raised-button (click)="search()"><mat-icon>search</mat-icon><span style="padding-left: 2%">Search</span></a>
+      </mat-nav-list>
 </div>
-
-
 <app-calendar></app-calendar>
+<div style="padding-top: 3%;" align="center">
+  <section>
+    <div class="example-button-row">
+      <a mat-raised-button routerLink="/new_event">Create Event</a>
+      <a mat-raised-button routerLink="/subgroups">Subgroups</a>
+      <a mat-raised-button routerLink="/create_subgroup">Create Subgroups</a>
+      <a mat-raised-button routerLink="/home">Edit Group</a>
+    </div>
+  </section>
+  <router-outlet></router-outlet>
+</div>
+<router-outlet></router-outlet>

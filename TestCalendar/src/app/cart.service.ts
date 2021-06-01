@@ -5,14 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   items: any = [
-    {title: "ferias", startdate: "2021-07-01", enddate: "2021-07-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "7", notes: "", type:""}
+    {title: "ferias", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "7", notes: "", type:""}
   ];
-
-  filter_group: any = [
-    {cadeira: "IHC", grupo: ["TP1", "P1", "P2", "P3"]},
-    {cadeira: "PDS", grupo: ["TP1", "P1", "P2", "P3"]},
-    {cadeira: "BD", grupo: ["TP1", "P1", "P2", "P3"]},
-  ]
 
   groups: any = [
     {cadeira: "IHC", grupo: "TP1", filter:false, selected: false},
@@ -63,7 +57,9 @@ export class CartService {
     {name: "Tomas Oliveira", nmec:"97890", cadeira: "PDS", grupo: "P1", selected: false}
   ]
 
-  eventos_groups: any = []
+  eventos_groups: any = [
+    {title: "ferias", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "7", notes: "", type:"", cadeira: "IHC", grupo: "TP1"}
+  ]
 
   subgroups: any = [
     {cadeira: "PDS", grupo: "P3", subgrupo: "G1", filter:false, selected: false},
