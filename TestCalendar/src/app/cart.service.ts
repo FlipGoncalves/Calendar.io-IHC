@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   items: any = [
-    {title: "ferias", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "7", notes: "", type:""}
+    {title: "ferias", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type:""}
   ];
 
   groups: any = [
@@ -58,7 +58,7 @@ export class CartService {
   ]
 
   eventos_groups: any = [
-    {title: "ferias", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "7", notes: "", type:"", cadeira: "IHC", grupo: "TP1"}
+    {title: "ferias", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type:"", cadeira: "IHC", grupo: "TP1"}
   ]
 
   subgroups: any = [

@@ -1,17 +1,21 @@
 <div>
-        <div class="modal-content">
-            <div *ngIf="showMyContainer" id="container">
-                <app-eventdaytable></app-eventdaytable>
-            </div>
+    <div class="modal-content" style="margin-right: 1%;">
+        <div *ngIf="showMyContainer" id="container">
+            <app-eventdaytable></app-eventdaytable>
         </div>
-    <article class="sample-column calendar-wrapper" style="margin-top: 50px;">
+    </div>
+    <article class="sample-column calendar-wrapper" style="margin-top: 50px; margin-left: 1%">
         <igx-calendar
             #calendar
             (selected)="onSelection($event)"
             [locale]="locale"
             [weekStart]="1"
             [formatOptions]="formatOptions"
-            [formatViews]="formatViews">
+            [formatViews]="formatViews"
+            >
         </igx-calendar>
-    </article> 
+    </article>
+    <div align="center">
+        <a mat-raised-button (click)="close()"><mat-icon>close</mat-icon><span style="padding-left: 2%">Close</span></a>
+    </div>
 </div>

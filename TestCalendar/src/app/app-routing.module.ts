@@ -28,7 +28,7 @@ const routes: Routes = [
   //{ path: 'IHC P3', component: IhcP3Component},
   { path: 'pds_p3', component: PdsP3Component},
   { path: 'bd_p3', component: BdP3Component},
-  { path: '', component: CoursesComponent},
+  { path: '', component: HomeComponent},
   { path: 'home', component: HomeComponent },
   { path: 'mycourses', component: CoursesComponent },
   { path: 'signin', component: SigninComponent},
