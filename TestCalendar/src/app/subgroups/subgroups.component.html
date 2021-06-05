@@ -1,0 +1,25 @@
+<div style="padding-top: 2%; padding-left:2.5%; padding-right: 2.5%; padding-bottom: 2%">
+    <div class="testbox">
+        <form action="/">
+          <h5 style="text-align: center;">New Subgroup</h5>
+          <div class="item">
+            <p>Subgroup:<span>*</span></p>
+            <div>
+              <input type="text" name="name" placeholder="Subgroup Title" [(ngModel)]="title"/>
+            </div>
+            </div>
+            <div class="item">
+                <p>Cadeira:<span>*</span></p>
+                <span>{{cadeira}}</span>
+            </div>
+            <div class="item">
+                <p>Grupo:<span>*</span></p>
+                <span>{{grupo}}</span>
+            </div>
+            <div class="example-button-row">
+                <a mat-raised-button routerLink="/mycourses">Cancel</a>
+                <a mat-raised-button routerLink="/mycourses" (click)="create()">Save</a>
+            </div>
+        </form>
+      </div>
+</div>

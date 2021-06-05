@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   items: any = [
-    {title: "ferias", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type:""}
+    {title: "ferias", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", location: "", type:""}
   ];
 
   groups: any = [
@@ -57,15 +57,30 @@ export class CartService {
     {name: "Tomas Oliveira", nmec:"97890", cadeira: "PDS", grupo: "P1", selected: false}
   ]
 
+  people_subgroups: any = [
+    {name: "Filipe Gonçalves", nmec: "98083", cadeira: "BD", grupo: "P3", subgrupo: "G1", selected: false},
+    {name: "Eva Bartolomeu", nmec: "98513", cadeira: "BD", grupo: "P3", subgrupo: "G1", selected: false},
+    {name: "Pedro Sobral", nmec: "92491", cadeira: "BD", grupo: "P3", subgrupo: "G1", selected: false},
+  ]
+
   eventos_groups: any = [
-    {title: "ferias", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type:"", cadeira: "IHC", grupo: "TP1"}
+    {title: "ferias grupos", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type:"", cadeira: "IHC", grupo: "TP1"}
+  ]
+
+  eventos_subgroups: any = [
+    {title: "ferias subgrupos", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type:"", cadeira: "IHC", grupo: "TP1"}
   ]
 
   subgroups: any = [
-    {cadeira: "PDS", grupo: "P3", subgrupo: "G1", filter:false, selected: false},
-  ]
-
-  people_subgroups: any = [
+    {cadeira: "PDS", grupo: "P3", subgrupo: "G1", filter: false, selected: false},
+    {cadeira: "PDS", grupo: "P3", subgrupo: "G2", filter: false, selected: false},
+    {cadeira: "PDS", grupo: "P3", subgrupo: "G3", filter: false, selected: false},
+    {cadeira: "PDS", grupo: "P3", subgrupo: "G4", filter: false, selected: false},
+    {cadeira: "PDS", grupo: "P1", subgrupo: "G1", filter: false, selected: false},
+    {cadeira: "PDS", grupo: "P1", subgrupo: "G2", filter: false, selected: false},
+    {cadeira: "IHC", grupo: "P1", subgrupo: "G1", filter: false, selected: false},
+    {cadeira: "IHC", grupo: "P1", subgrupo: "G2", filter: false, selected: false},
+    {cadeira: "IHC", grupo: "P2", subgrupo: "G1", filter: false, selected: false},
   ]
 
   pessoas: any = [
@@ -95,12 +110,17 @@ export class CartService {
   course: string = "";
   public filter: boolean = false;
   public groupFilter: any;
+  public subgroupFilter: any;
 
   type: string="";
   next_type: boolean = false;
   nextEventsetType(type: string) {
     this.type = type;
     this.next_type = true;
+  }
+
+  getSubGroups() {
+    return this.subgroups;
   }
 
   addToCart(product: any) {
@@ -115,9 +135,18 @@ export class CartService {
       product.type = this.type
     product.cadeira = this.groupFilter.cadeira;
     product.grupo = this.groupFilter.grupo;
-    this.eventos_groups.push(product)
+    this.eventos_subgroups.push(product)
     this.items.push(product);
-    alert(product.type)
+  }
+
+  addToCartInSubGroup(product: any) {
+    if(this.next_type)
+      product.type = this.type
+    product.cadeira = this.subgroupFilter.cadeira;
+    product.grupo = this.subgroupFilter.grupo;
+    product.subgrupo = this.subgroupFilter.subgrupo;
+    this.eventos_subgroups.push(product)
+    this.items.push(product);
   }
 
   checkLogin(request: any) {
@@ -197,12 +226,40 @@ export class CartService {
     return this.course;
   }
 
+  public group: string = "";
+
+  setGroup(group: string) {
+    this.group = group;
+  }
+
+  getGroup() {
+    return this.group;
+  }
+
   addGroup(array: any, nameGroup: string) {
     let tmp: any = array[0];
     this.groups.push({cadeira: tmp.cadeira, grupo: nameGroup, filter:false, selected: false});
     for (let item of array){
       this.people_groups.push(item);
     } 
+  }
+
+  addSubGroup(tmp: any, nameSubgroup: string) {
+    this.subgroups.push({cadeira: tmp.cadeira, grupo: tmp.grupo, subgrupo: nameSubgroup, filter:false, selected: false}); 
+  }
+
+  setSubGroupFilterTrue(value: boolean, cadeira:string, grupo:string, subgrupo:string) {
+    this.filter=value;
+    for (let index = 0; index < this.subgroups.length; index++) {
+      const item = this.groups[index];
+      if (item.grupo == grupo && item.cadeira == cadeira && item.subgrupo === subgrupo) {
+        this.subgroups[index].filter = true;
+        this.subgroupFilter = item;
+      }
+      else{
+        this.subgroups[index].filter = false;
+      } 
+    }
   }
 
   setFilterTrue(value: boolean, cadeira:string, grupo:string) {

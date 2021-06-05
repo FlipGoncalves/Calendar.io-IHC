@@ -1,14 +1,14 @@
-<div align="center" style="padding-top:2%; padding-left:2.5%; padding-right:2.5%; padding-bottom: 2%;">
+<div style="padding-top:2%; padding-left:2.5%; padding-right:2.5%; padding-bottom: 2%;">
   <h2 class="titulo" >Course overview</h2>
   <mat-divider style="padding-top:1%;"></mat-divider> 
   <router-outlet></router-outlet>
   <mat-tab-group dynamicHeight mat-align-tabs="center" (selectedTabChange)="toggle()">
   <mat-tab label="Interação Humano-Computador">
     <section style="margin:auto">
-      <div class="example-button-row">
+      <div class="example-button-row" align="center">
         <div *ngFor="let item of groups">
           <div *ngIf="validate(item, 'IHC')">
-            <a mat-raised-button routerLink="/group" (click)="activateFiltergroups(item)">{{item.cadeira + " " + item.grupo}}</a>
+            <a mat-raised-button (click)="activateFiltergroups(item); showSub(item)" style="float: left">{{item.cadeira + " " + item.grupo}}</a>
           </div>
         </div>
         <a mat-raised-button (click)="onclick('IHC')" style="color: #a5ca56;">
@@ -20,10 +20,10 @@
   </mat-tab>
   <mat-tab label="Padrões e Desenvolvimento de Software">
     <section style="margin:auto">
-      <div class="example-button-row">
+      <div class="example-button-row" align="center">
         <div *ngFor="let item of groups">
           <div *ngIf="validate(item, 'PDS')">
-            <a mat-raised-button routerLink="/group" (click)="activateFiltergroups(item)">{{item.cadeira + " " + item.grupo}}</a>
+            <a mat-raised-button (click)="activateFiltergroups(item); showSub(item)" style="float: left">{{item.cadeira + " " + item.grupo}}</a>
           </div>
         </div>
         <a mat-raised-button (click)="onclick('PDS')" style="color: #a5ca56;">
@@ -35,10 +35,10 @@
   </mat-tab>
   <mat-tab label="Base de Dados">
     <section style="margin:auto">
-      <div class="example-button-row">
+      <div class="example-button-row" align="center">
         <div *ngFor="let item of groups">
           <div *ngIf="validate(item, 'BD')">
-            <a mat-raised-button routerLink="/group" (click)="activateFiltergroups(item)">{{item.cadeira + " " + item.grupo}}</a>
+            <a mat-raised-button (click)="activateFiltergroups(item); showSub(item)" style="float: left">{{item.cadeira + " " + item.grupo}}</a>
           </div>
         </div>
         <a mat-raised-button (click)="onclick('BD')" style="color: #a5ca56;">
@@ -51,8 +51,23 @@
 </mat-tab-group>
 </div>
 
+<div *ngIf="showSubgroups" align="center" class="example-button-row">
+  <p>Subgroups:</p>
+  <div *ngFor="let sub of subgroups">
+    <div *ngIf="grupo === sub.grupo && sub.cadeira === cadeira">
+      <a mat-raised-button routerLink="/group" (click)="activateFiltersubgroups(sub)" style="float: left">{{sub.subgrupo}}</a>
+    </div>
+  </div>
+  <a mat-raised-button (click)="subcreate()" style="color: #a5ca56;">
+    <mat-icon>create_new_folder</mat-icon>
+    <a style="margin-left: 2%;">Create a new subgroup</a>
+</a>
+</div>
+
 <div *ngIf="showClasses">
   <app-create-group></app-create-group>
 </div>
 
-
+<div *ngIf="showSubcreate"> 
+  <app-subgroups></app-subgroups>
+</div>

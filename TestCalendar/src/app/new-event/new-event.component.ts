@@ -28,6 +28,7 @@ export class NewEventComponent implements OnInit {
   rem: string = "";
   rep: string = "";
   notes: string = "";
+  location: string = "";
 
   clickme() {
       switch(+this.rep) {
@@ -48,10 +49,10 @@ export class NewEventComponent implements OnInit {
           break;
       }
     if (this.cartService.filter == false) {
-      this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time, endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, type: ""};
+      this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time, endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, location: this.location, type: ""};
       this.cartService.addToCart(this.product);  
     }else{
-      this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time, endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, type: "", cadeira: "", grupo: ""};
+      this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time, endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, location: this.location, type: "", cadeira: "", grupo: ""};
       this.cartService.addToCartInGroup(this.product);
     }
     

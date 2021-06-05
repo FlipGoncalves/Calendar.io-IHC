@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   search() {
-    if(! (this.cadeira === "" || this.practical == ""))
+    if(! (this.cadeira === "" || this.practical === ""))
       this.cartService.setFilterTrue(true,this.cadeira,this.practical);
   }
 

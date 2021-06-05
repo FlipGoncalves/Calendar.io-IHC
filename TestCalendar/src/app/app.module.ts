@@ -72,6 +72,7 @@ import { CreateGroupComponent } from './create-group/create-group.component';
 import { IgxButtonModule, IgxToggleModule } from "igniteui-angular";
 import { ComponentNameComponent } from './component-name/component-name.component';
 import { HomeComponent } from './home/home.component';
+import { SubgroupsComponent } from './subgroups/subgroups.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { HomeComponent } from './home/home.component';
     CreateGroupComponent,
     ComponentNameComponent,
     HomeComponent,
+    SubgroupsComponent,
   ],
   imports: [
     BrowserModule,

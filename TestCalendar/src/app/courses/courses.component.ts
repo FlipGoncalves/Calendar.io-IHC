@@ -1,5 +1,6 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
+import { MaxLengthValidator } from '@angular/forms';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -13,7 +14,13 @@ export class CoursesComponent implements OnInit {
     private cartService: CartService
   ) { }
 
+  public cadeira: string = "";
+  public grupo: string = "";
+  public showSubgroups: boolean = false;
+  public showSubcreate: boolean = false;
+
   public groups: any = this.cartService.getGroups();
+  public subgroups: any = this.cartService.getSubGroups();
   public showClasses: boolean = false;
 
   ngOnInit(): void {
@@ -26,10 +33,16 @@ export class CoursesComponent implements OnInit {
 
   toggle() {
     this.showClasses = false;
+    this.showSubgroups = false;
+    this.showSubcreate = false;
   }
   
   activateFiltergroups(item:any) {
-    this.cartService.setFilterTrue(true,item.cadeira,item.grupo );
+    this.cartService.setFilterTrue(true,item.cadeira,item.grupo);
+  }
+
+  activateFiltersubgroups(item:any) {
+    this.cartService.setSubGroupFilterTrue(true,item.cadeira,item.grupo, item.subgrupo);
   }
 
   validate(item:any, cadeira:string) {
@@ -37,5 +50,17 @@ export class CoursesComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  subcreate() {
+    this.showSubcreate = true;
+    this.cartService.setCourse(this.cadeira);
+    this.cartService.setGroup(this.grupo);
+  }
+
+  showSub(item:any) {
+    this.cadeira = item.cadeira;
+    this.grupo = item.grupo;
+    this.showSubgroups = true;
   }
 }

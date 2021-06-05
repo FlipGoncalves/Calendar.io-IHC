@@ -16,6 +16,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { CoursesComponent } from './courses/courses.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HomeComponent } from './home/home.component';
+import { SubgroupsComponent } from './subgroups/subgroups.component';
 
 
 const routes: Routes = [
@@ -25,15 +26,13 @@ const routes: Routes = [
   { path: 'pds', component: PdsComponent },
   { path: 'bd', component: BdComponent },
   { path: 'group', component: GroupComponent},
-  //{ path: 'IHC P3', component: IhcP3Component},
-  { path: 'pds_p3', component: PdsP3Component},
-  { path: 'bd_p3', component: BdP3Component},
   { path: '', component: HomeComponent},
   { path: 'home', component: HomeComponent },
   { path: 'mycourses', component: CoursesComponent },
   { path: 'signin', component: SigninComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'testar-signin', component: TestarSigninComponent},
+  { path: 'subgroups', component: SubgroupsComponent }
 ];
 
 @NgModule({
