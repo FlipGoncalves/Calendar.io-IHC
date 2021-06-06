@@ -11,7 +11,8 @@ import { CoursesComponent } from '../courses/courses.component';
 export class SubgroupsComponent implements OnInit {
 
   constructor(
-    private cartService: CartService,private courseComponent: CoursesComponent
+    private cartService: CartService,
+    private courseComponent: CoursesComponent
   ) {}
 
   public subgroups: any = this.cartService.getSubGroups();
