@@ -1,0 +1,18 @@
+-> ponto onde há evento								IMPORTANTE
+-> calendario semanal nas courses
+-> criar subgrupo								IMPORTANTE
+-> visualizar subgrupo								IMPORTANTE
+-> editar/apagar evento
+-> editar grupo
+-> modal no new event
+-> view do calendario
+->titulo do my calendar
+-> pesquisa no menu
+-> notificaçoes
+-> about us-+
+-> LOCALIZAÇAO, compor a repeticao, compor as notas e reminder			IMPORTANTE
+-> criar grupo:"escolher turma", ler ficheiro de alunos
+-> na criacao de evento ao clicar no dia completa logo o modal (solucao botao de mais no calendario,...)
+-> validaçao de formularios
+-> menu n vai para o lado
+-> meno 3 tracos

@@ -14,8 +14,9 @@ export class SidenavComponent implements OnInit {
   }
 
   desactivateFiltergroups() {
-    alert("Filtro desativado")
-    this.cartService.setFilterFalse(false);
+    this.cartService.setFilterGroupFalse();
+    this.cartService.setFilterSubGroupFalse();
+
   }
 
 }

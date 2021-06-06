@@ -18,7 +18,7 @@ export class CoursesComponent implements OnInit {
   public grupo: string = "";
   public showSubgroups: boolean = false;
   public showSubcreate: boolean = false;
-
+  public showCreateGroup: boolean = false;
   public groups: any = this.cartService.getGroups();
   public subgroups: any = this.cartService.getSubGroups();
   public showClasses: boolean = false;
@@ -29,6 +29,7 @@ export class CoursesComponent implements OnInit {
   onclick(course: string): void {
     this.cartService.setCourse(course)
     this.showClasses = true;
+    this.showCreateGroup = true;
   }
 
   toggle() {
@@ -38,11 +39,11 @@ export class CoursesComponent implements OnInit {
   }
   
   activateFiltergroups(item:any) {
-    this.cartService.setFilterTrue(true,item.cadeira,item.grupo);
+    this.cartService.setFilterGroupTrue(item.cadeira,item.grupo);
   }
 
   activateFiltersubgroups(item:any) {
-    this.cartService.setSubGroupFilterTrue(true,item.cadeira,item.grupo, item.subgrupo);
+    this.cartService.setSubGroupFilterTrue(item.cadeira,item.grupo, item.subgrupo);
   }
 
   validate(item:any, cadeira:string) {
@@ -55,7 +56,7 @@ export class CoursesComponent implements OnInit {
   subcreate() {
     this.showSubcreate = true;
     this.cartService.setCourse(this.cadeira);
-    this.cartService.setGroup(this.grupo);
+    //this.cartService.setGroup(this.grupo);
   }
 
   showSub(item:any) {

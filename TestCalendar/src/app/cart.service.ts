@@ -68,7 +68,7 @@ export class CartService {
   ]
 
   eventos_subgroups: any = [
-    {title: "ferias subgrupos", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type:"", cadeira: "IHC", grupo: "TP1"}
+    {title: "ferias subgrupos", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type:"", cadeira: "IHC", grupo: "P1", subgrupo: "G1"}
   ]
 
   subgroups: any = [
@@ -108,7 +108,8 @@ export class CartService {
 
   data: string = "";
   course: string = "";
-  public filter: boolean = false;
+  public filter_group: boolean = false;
+  public filter_subgroup: boolean = false;
   public groupFilter: any;
   public subgroupFilter: any;
 
@@ -119,15 +120,10 @@ export class CartService {
     this.next_type = true;
   }
 
-  getSubGroups() {
-    return this.subgroups;
-  }
-
   addToCart(product: any) {
     if(this.next_type)
       product.type = this.type
     this.items.push(product);
-    alert(product.type)
   }
 
   addToCartInGroup(product: any) {
@@ -135,7 +131,7 @@ export class CartService {
       product.type = this.type
     product.cadeira = this.groupFilter.cadeira;
     product.grupo = this.groupFilter.grupo;
-    this.eventos_subgroups.push(product)
+    this.eventos_groups.push(product)
     this.items.push(product);
   }
 
@@ -201,8 +197,16 @@ export class CartService {
     return this.groups;
   }
 
+  getSubGroups() {
+    return this.subgroups;
+  }
+
   getPeople_groups() {
     return this.people_groups;
+  }
+
+  getPeople_subgroups() {
+    return this.people_subgroups;
   }
 
   clearCart() {
@@ -244,12 +248,18 @@ export class CartService {
     } 
   }
 
-  addSubGroup(tmp: any, nameSubgroup: string) {
-    this.subgroups.push({cadeira: tmp.cadeira, grupo: tmp.grupo, subgrupo: nameSubgroup, filter:false, selected: false}); 
+  addSubGroup(array: any, nameSubroup: string) {
+
+    let tmp: any = array[0];
+    this.subgroups.push({cadeira: tmp.cadeira, grupo: tmp.grupo, subgrupo: nameSubroup, filter:false, selected: false});
+    for (let item of array){
+      this.people_subgroups.push(item);
+    } 
   }
 
-  setSubGroupFilterTrue(value: boolean, cadeira:string, grupo:string, subgrupo:string) {
-    this.filter=value;
+  setSubGroupFilterTrue(cadeira:string, grupo:string, subgrupo:string) {
+    this.filter_subgroup=true;
+    this.filter_group=false;
     for (let index = 0; index < this.subgroups.length; index++) {
       const item = this.groups[index];
       if (item.grupo == grupo && item.cadeira == cadeira && item.subgrupo === subgrupo) {
@@ -262,8 +272,9 @@ export class CartService {
     }
   }
 
-  setFilterTrue(value: boolean, cadeira:string, grupo:string) {
-    this.filter=value;
+  setFilterGroupTrue(cadeira:string, grupo:string) {
+    this.filter_group=true;
+    this.filter_subgroup=false;
     for (let index = 0; index < this.groups.length; index++) {
       const item = this.groups[index];
       if (item.grupo == grupo && item.cadeira == cadeira) {
@@ -276,7 +287,11 @@ export class CartService {
     }
   }
 
-  setFilterFalse(value: boolean) {
-    this.filter=value;
+  setFilterGroupFalse() {
+    this.filter_group=false;
+  }
+
+  setFilterSubGroupFalse() {
+    this.filter_subgroup=false;
   }
 }

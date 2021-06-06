@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
+import { CoursesComponent } from '../courses/courses.component';
+
 
 @Component({
   selector: 'app-create-group',
@@ -10,21 +12,20 @@ import { CartService } from '../cart.service';
 export class CreateGroupComponent implements OnInit {
 
   constructor(
-    private cartService: CartService,
+    private cartService: CartService,private courseComponent: CoursesComponent
   ) {}
 
   displayedColumns: string[] = ['cadeira', 'grupo'];
   public groups: any = this.cartService.getGroups();
   public course: string = this.cartService.getCourse();
-  public showContainer: boolean = false;
-  public selec: string = "";
-  public people: any = this.cartService.getAlunos();
   public people_groups: any = this.cartService.getPeople_groups();
   public options_people: any;
   nameNewGroup: string = "";
 
   public ngOnInit() {
     this.groups = this.forloop();
+    const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
+    modal.style.display = "block";
   }
 
   forloop() {
@@ -44,29 +45,11 @@ export class CreateGroupComponent implements OnInit {
   allComplete: boolean = false;
   allCompletePeople: boolean = false;
 
-  setAll() {
-    if(this.allComplete)
-      this.allComplete = false;
-    else this.allComplete = true;
-    this.groups.forEach((t: any) => t.selected = this.allComplete);
-  }
-
-  open() {
-    const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
-    modal.style.display = "block";
-    for (let item of this.groups) {
-      if (item.selected == true) {
-        this.selec += (item.cadeira + " " + item.grupo) + "; ";
-      }
-    }
-    this.showContainer = true;
-  }
-
   close() {
     const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
     modal.style.display = "none";
-    this.selec = "";
-    this.showContainer = false;
+    this.courseComponent.showCreateGroup = false;
+
   }
 
   setAllPeople() {
@@ -79,14 +62,11 @@ export class CreateGroupComponent implements OnInit {
   people_choices() {
     let array: any = [];
     for (let item of this.people_groups) {
-      for (let i of this.groups) {
-        if (item.grupo == i.grupo && i.selected==true && item.cadeira == this.course) {
-          if (!array.some((e: { name: any; }) => e.name == item.name)) {
-            array.push(item);
-          }
+      if (item.cadeira == this.course) {
+        if (!array.some((e: { name: any; }) => e.name == item.name)) {
+          array.push(item);
         }
       }
-      
     }
     this.options_people = array;
     return this.options_people;
@@ -101,6 +81,8 @@ export class CreateGroupComponent implements OnInit {
     }
     
     this.cartService.addGroup(array, this.nameNewGroup);
+    this.courseComponent.showCreateGroup = false;
+
 
   }
 

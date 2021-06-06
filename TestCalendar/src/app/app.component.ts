@@ -10,8 +10,9 @@ export class AppComponent {
   title = 'TestCalendar';
   constructor(  private cartService: CartService) { }
 
-  desactivateFiltergroups() {
-    this.cartService.setFilterFalse(false);
+  desactivateFilter() {
+    this.cartService.setFilterGroupFalse();
+    this.cartService.setFilterSubGroupFalse();
   }
 
 }

@@ -1,58 +1,45 @@
-<div style="padding-top:2%" align="center">
-  <a mat-raised-button (click)="setAll()">Check all</a>
-  <section class="example-section">
-    <span class="example-list-section">
-      <li *ngFor="let item of groups" style="list-style-type:none">
-        <mat-checkbox class="example-margin" style="margin: 10px 10px 10px 10px;" [(ngModel)]="item.selected">{{item.cadeira + " " + item.grupo}}</mat-checkbox>
-      </li>
-    </span>
-  </section>
-  <a mat-raised-button style="margin-top:2%" (click)="open()">Create Groups</a>
-</div>
-
 <div id="myModal" class="modal">
   <div class="modal-content">
-      <div *ngIf="showContainer" id="container">
-        <div style="padding-left: 2.5%; padding-top: 2%; padding-right: 2.5%; padding-bottom: 2%;">
-          <div class="testbox">
-              <form action="/">
-                <h5 style="text-align: center;">New Group</h5>
-                <div class="item">
-                  <p>Classes</p>
-                  <div>
-                    <span class="example-margin">{{selec}}</span>
-                  </div>
-                </div>
-                <div class="item">
-                  <p>Group's name:</p>
-                  <div>
-                    <input type="text" name="name" placeholder="Group's name" [(ngModel)]="nameNewGroup"/>
-                  </div>
-                </div>
-                <div class="item">
-                  <p>Administrators email (optional):</p>
-                  <div>
-                    <input type="text" name="name" placeholder="Administrators email"/>
-                  </div>
-                </div>
-                <div class="item">
-                  <p>Students:</p>
-                  <a mat-raised-button style="margin-bottom: 5px; margin-top: 5px" (click)="setAllPeople()">Check all</a>
-                  <section class="example-section">
-                    <span class="example-list-section">
-                      <li *ngFor="let item of people_choices()" style="list-style-type:none">
-                        <mat-checkbox class="example-margin" style="margin: 10px 10px 10px 10px;" [(ngModel)]="item.selected" name="item.selected">NMEC {{item.nmec + "  " +item.name}}</mat-checkbox>
-                      </li>
-                    </span>
-                  </section>
-                </div>
-                <div class="example-button-row">
-                  <a mat-raised-button (click)="close()">Back</a>
-                  <a mat-raised-button (click)="save()" routerLink="/mycourses">Save</a>
-                </div>
-              </form>
+    <div style="padding-left: 2.5%; padding-top: 2%; padding-right: 2.5%; padding-bottom: 2%;">
+      <div class="testbox">
+        <form action="/">
+          <h5 style="text-align: center;">New Group</h5>
+          <div class="item">
+            <p>Course</p>
+            <div>
+              <span class="example-margin">{{course}}</span>
             </div>
-        </div>
+          </div>
+          <div class="item">
+            <p>Group's name:</p>
+            <div>
+              <input type="text" name="name" placeholder="Group's name" [(ngModel)]="nameNewGroup" />
+            </div>
+          </div>
+          <div class="item">
+            <p>Administrators email (optional):</p>
+            <div>
+              <input type="text" name="name" placeholder="Administrators email" />
+            </div>
+          </div>
+          <div class="item">
+            <p>Students:</p>
+            <a mat-raised-button style="margin-bottom: 5px; margin-top: 5px" (click)="setAllPeople()">Check all</a>
+            <section class="example-section">
+              <span class="example-list-section">
+                <li *ngFor="let item of people_choices()" style="list-style-type:none">
+                  <mat-checkbox class="example-margin" style="margin: 10px 10px 10px 10px;" [(ngModel)]="item.selected"
+                    name="item.selected">NMEC {{item.nmec + " " +item.name}}</mat-checkbox>
+                </li>
+              </span>
+            </section>
+          </div>
+          <div class="example-button-row">
+            <a mat-raised-button (click)="close()">Back</a>
+            <a mat-raised-button (click)="save()">Save</a>
+          </div>
+        </form>
       </div>
+    </div>
   </div>
 </div>

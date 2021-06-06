@@ -48,12 +48,16 @@ export class NewEventComponent implements OnInit {
           this.rep = "Yearly"
           break;
       }
-    if (this.cartService.filter == false) {
-      this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time, endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, location: this.location, type: ""};
-      this.cartService.addToCart(this.product);  
-    }else{
+    if (this.cartService.filter_group == true) {
       this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time, endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, location: this.location, type: "", cadeira: "", grupo: ""};
       this.cartService.addToCartInGroup(this.product);
+    }else if (this.cartService.filter_subgroup == true){
+      this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time, endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, location: this.location, type: "", cadeira: "", grupo: "", subgrupo: ""};
+      this.cartService.addToCartInSubGroup(this.product);
+    }
+    else{
+      this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time, endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, location: this.location, type: ""};
+      this.cartService.addToCart(this.product);  
     }
     
   }
