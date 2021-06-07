@@ -261,7 +261,7 @@ export class CartService {
     this.filter_subgroup=true;
     this.filter_group=false;
     for (let index = 0; index < this.subgroups.length; index++) {
-      const item = this.groups[index];
+      const item = this.subgroups[index];
       if (item.grupo == grupo && item.cadeira == cadeira && item.subgrupo === subgrupo) {
         this.subgroups[index].filter = true;
         this.subgroupFilter = item;

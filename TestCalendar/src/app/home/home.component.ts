@@ -13,12 +13,17 @@ export class HomeComponent implements OnInit {
 
   ) { }
 
+  public newEvent: boolean = false;
+
   public groups: any = this.cartService.groups;
   public group: any = [];
   public class: any = [];
+  public sub: any = this.cartService.subgroups;
+  public subs: any = [];
 
   cadeira: string="";
   grupo: string="";
+  subgrupo: string = "";
 
   ngOnInit(): void {
     for (let item of this.groups) {
@@ -35,10 +40,22 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  search() {
-    if(! (this.cadeira === "" || this.grupo === ""))
-      this.cartService.setFilterGroupTrue(this.cadeira,this.grupo);
-      
+  togglesubgroups() {
+    this.subs = [];
+    for (let item of this.sub) {
+      if (! this.subs.includes(item.subgrupo) &&  item.cadeira === this.cadeira && item.grupo === this.grupo)
+          this.subs.push(item.subgrupo);
+    }
   }
 
+  search() {
+    if(! (this.cadeira === "" || this.grupo === "") && this.subgrupo === "")
+      this.cartService.setFilterGroupTrue(this.cadeira,this.grupo);
+    if (! (this.cadeira === "" || this.grupo === "" || this.subgrupo === ""))
+      this.cartService.setSubGroupFilterTrue(this.cadeira,this.grupo, this.subgrupo);
+  }
+
+  newevent() {
+    this.newEvent = true;
+  }
 }

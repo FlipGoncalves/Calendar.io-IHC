@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CartService } from '../cart.service';
 import { ActivatedRoute } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
  
 @Component({
   selector: 'app-new-event',
@@ -14,15 +15,18 @@ export class NewEventComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private Home: HomeComponent,
   ) { }
 
   ngOnInit(): void {
+    const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
+    modal.style.display = "block";
   }
 
   title: string = "";
-  start_date: string = "";
-  end_date: string = "";
+  start_date: string = this.cartService.getData();
+  end_date: string = this.cartService.getData();
   start_time: string = "";
   end_time: string = "";
   rem: string = "";
@@ -59,6 +63,14 @@ export class NewEventComponent implements OnInit {
       this.product = {title: this.title, startdate: this.start_date, enddate: this.end_date, starttime: this.start_time, endtime: this.end_time, reminder: this.rem, repetition: this.rep, notes: this.notes, location: this.location, type: ""};
       this.cartService.addToCart(this.product);  
     }
-    
+    this.Home.newEvent = false;
+    const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
+    modal.style.display = "none";
+  }
+
+  closeme() {
+    this.Home.newEvent = false;
+    const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
+    modal.style.display = "none";
   }
 }

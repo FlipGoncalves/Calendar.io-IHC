@@ -1,3 +1,5 @@
+<div id="myModal" class="modal">
+  <div class="modal-content">
 <div style="padding-top: 2%; padding-left:2.5%; padding-right: 2.5%; padding-bottom: 2%">
     <div class="testbox">
         <form action="/">
@@ -11,18 +13,18 @@
             <div class="item">
                 <i class="fas fa-calendar-alt"></i>
                 <p>Start Date<span>*</span></p>
-                <input type="date" name="name" required [(ngModel)]="start_date"/>
+                <input name="name" required [(ngModel)]="start_date" placeholder="{{start_date}}"/>
                 <i class="fas fa-calendar-alt"></i>
             </div>
             <div class="item">
-                    <p>Start time:<span>*</span></p>
-                    <input type="time" name="name" required [(ngModel)]="start_time"/>
-                    <i class="fas fa-clock"></i>
+                <p>Start time:<span>*</span></p>
+                <input type="time" name="name" required [(ngModel)]="start_time"/>
+                <i class="fas fa-clock"></i>
             </div>
             <div class="item">
-                    <label for="sdate">End Date<span>*</span></label>
-                    <input id="sdate" type="date" name="sdate" required [(ngModel)]="end_date"/>
-                    <i class="fas fa-calendar-alt"></i>
+                <label for="sdate">End Date<span>*</span></label>
+                <input id="sdate" name="sdate" required [(ngModel)]="end_date" placeholder="{{end_date}}"/>
+                <i class="fas fa-calendar-alt"></i>
             </div>
             <div class="item">
                 <p>End time:<span>*</span></p>
@@ -67,9 +69,11 @@
             <textarea rows="5" [(ngModel)]="notes" name="notes"></textarea>
           </div>
           <div class="example-button-row">
-            <a mat-raised-button routerLink="/home">Cancel</a>
+            <a mat-raised-button routerLink="/home" (click)="closeme()">Cancel</a>
             <a mat-raised-button routerLink="/home" (click)="clickme()">Save</a>
           </div>
         </form>
       </div>
+</div>
+</div>
 </div>

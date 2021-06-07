@@ -1,5 +1,5 @@
 <div>
-  <div style="width: 40%; float: left">
+  <div style="width: 60%; float: left">
     <mat-form-field appearance="fill" style="padding-left: 5%">
       <mat-label>Course</mat-label>
       <mat-select [(ngModel)]="cadeira" (selectionChange)="toggle()">
@@ -8,8 +8,14 @@
     </mat-form-field>
     <mat-form-field appearance="fill" style="padding-left: 5%">
       <mat-label>Group</mat-label>
-      <mat-select [(ngModel)]="grupo">
+      <mat-select [(ngModel)]="grupo" (selectionChange)="togglesubgroups()">
         <mat-option *ngFor="let group of class" [value]="group">{{group}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="padding-left: 5%">
+      <mat-label>Group</mat-label>
+      <mat-select [(ngModel)]="subgrupo">
+        <mat-option *ngFor="let group of subs" [value]="group">{{group}}</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -20,13 +26,13 @@
 <div style="padding-top: 3%;" align="center">
   <section>
     <div class="example-button-row">
-      <a mat-raised-button routerLink="/new_event">Create Event</a>
-      <a mat-raised-button routerLink="/subgroups">Subgroups</a>
-      <a mat-raised-button routerLink="/create_subgroup">Create Subgroups</a>
+      <a mat-raised-button (click)="newevent()">Create Event</a>
       <a mat-raised-button routerLink="/home">Edit Group</a>
     </div>
   </section>
   <router-outlet></router-outlet>
 </div>
 <app-calendar></app-calendar>
-<router-outlet></router-outlet>
+<div *ngIf="newEvent">
+    <app-new-event></app-new-event>
+</div>
