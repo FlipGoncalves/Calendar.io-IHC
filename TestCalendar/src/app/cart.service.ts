@@ -106,6 +106,9 @@ export class CartService {
     { email: "student@ua.pt", password: "12345" },
   ];
 
+  userOnline: any = [
+  ]
+
   data: string = "";
   course: string = "";
   public filter_group: boolean = false;
@@ -151,6 +154,7 @@ export class CartService {
       const element = this.usersList[index];
       if (element.email === request.email) {
         if (element.password === request.password) {
+          this.userOnline.push(element.email);
           alert("A IR PARA A PÁGINA CERTA")
           flag = true;
         } else {
@@ -177,6 +181,28 @@ export class CartService {
       alert("User added");
       this.usersList.push(request);
     }
+  }
+
+  getDisplayUser(userOnline: any) {
+    let nome: string;
+    let email: any = this.getUserEmail;
+    console.log(email);
+
+    if (email === "teacher@ua.pt") {
+      nome = "Joana Silva, 90126";
+      return nome;
+    }
+    if (email === "student@ua.pt") {
+      nome = "João Sousa, 98345";
+      return nome;
+    }
+
+    return "";
+  }
+
+  getUserEmail(userOnline: any) {
+    alert(this.userOnline.email);
+    return this.userOnline.email;
   }
 
   getItems() {

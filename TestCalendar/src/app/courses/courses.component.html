@@ -1,5 +1,5 @@
 <div style="padding-top:2%; padding-left:2.5%; padding-right:2.5%; padding-bottom: 2%;">
-  <h2 class="titulo" >Course overview</h2>
+  <h2 class="titulo" >Course Overview</h2>
   <mat-divider style="padding-top:1%;"></mat-divider> 
   <router-outlet></router-outlet>
   <mat-tab-group dynamicHeight mat-align-tabs="center" (selectedTabChange)="toggle()">
@@ -51,7 +51,8 @@
 </mat-tab-group>
 </div>
 
-<div *ngIf="showSubgroups" align="center" class="example-button-row">
+<div *ngIf="showSubgroups" align="center" style="margin:auto" class="example-button-row">
+  <mat-divider style="padding-top:1%;"></mat-divider> 
   <p>Subgroups:</p>
   <div *ngFor="let sub of subgroups">
     <div *ngIf="grupo === sub.grupo && sub.cadeira === cadeira">

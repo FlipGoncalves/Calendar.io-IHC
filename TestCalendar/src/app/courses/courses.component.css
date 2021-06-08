@@ -3,7 +3,6 @@ section {
   }
   
   .example-button-row {
-    display: table-cell;
     width: 800px;
     padding-top: 2%;
   }

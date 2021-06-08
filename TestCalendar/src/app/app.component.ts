@@ -15,6 +15,8 @@ export class AppComponent {
     this.cartService.setFilterSubGroupFalse();
   }
 
+  public nome: string = this.cartService.getDisplayUser({ email: "student@ua.pt"});
+
 
 }
 
