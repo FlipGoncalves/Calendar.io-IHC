@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CartService } from '../cart.service';
 
 export interface Events {
@@ -17,7 +17,8 @@ export class EventdaytableComponent implements OnInit {
   shownormal: boolean = true;
 
   constructor(
-    private cartService: CartService
+    private cartService: CartService,
+    private changeDetectorRefs: ChangeDetectorRef
   ) {}
 
   displayedColumns: string[] = ['title', 'startdate', 'enddate', 'starttime', 'endtime', 'repetition', 'reminder', 'notes'];
@@ -29,9 +30,7 @@ export class EventdaytableComponent implements OnInit {
     this.items = this.cartService.getItems();
     this.items = this.forloop();
     this.dataSource = this.items;
-  }
-
-  ngOnDestroy() {
+    this.changeDetectorRefs.detectChanges();
   }
 
   setdata(date: string) {

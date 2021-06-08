@@ -28,6 +28,9 @@ export class CalendarComponent implements OnInit{
     }
 
     public onSelection(date: Date | Date[]) {
+        if(this.showMyContainer)
+            this.showMyContainer = false;
+            
         let day = (+JSON.stringify(date).substring(9,11));
         let month = (+JSON.stringify(date).substring(6,8));
         let year = (+JSON.stringify(date).substring(1,5));
@@ -42,6 +45,8 @@ export class CalendarComponent implements OnInit{
         }
         this.cartService.setData(year+"-"+space+month+"-"+secondspace+day);
         this.event.setdata(year+"-"+space+month+"-"+secondspace+day);
+        this.event.ngOnInit();
+        
         this.showMyContainer = true;
     }
 

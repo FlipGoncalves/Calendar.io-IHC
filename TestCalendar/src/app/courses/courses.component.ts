@@ -1,6 +1,6 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { MaxLengthValidator } from '@angular/forms';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -21,21 +21,18 @@ export class CoursesComponent implements OnInit {
   public showCreateGroup: boolean = false;
   public groups: any = this.cartService.getGroups();
   public subgroups: any = this.cartService.getSubGroups();
-  public showClasses: boolean = false;
 
   ngOnInit(): void {
   }
 
   onclick(course: string): void {
     this.cartService.setCourse(course)
-    this.showClasses = true;
     this.showCreateGroup = true;
   }
 
   toggle() {
-    this.showClasses = false;
     this.showSubgroups = false;
-    this.showSubcreate = false;
+    //this.showSubcreate = false;
   }
   
   activateFiltergroups(item:any) {
@@ -56,7 +53,7 @@ export class CoursesComponent implements OnInit {
   subcreate() {
     this.showSubcreate = true;
     this.cartService.setCourse(this.cadeira);
-    this.cartService.setGroup(this.grupo);
+    //this.cartService.setGroup(this.grupo);
   }
 
   showSub(item:any) {
@@ -64,11 +61,4 @@ export class CoursesComponent implements OnInit {
     this.grupo = item.grupo;
     this.showSubgroups = true;
   }
-
-  viewDate: Date = new Date();
-
-  refresh: Subject<any> = new Subject();
-
-  events: any = this.cartService.getItems();
-
 }
