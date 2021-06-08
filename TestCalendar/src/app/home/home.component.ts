@@ -26,6 +26,8 @@ export class HomeComponent implements OnInit {
   subgrupo: string = "";
 
   ngOnInit(): void {
+    this.class = []; //n tenho a certeza
+    this.subs = []; //n tenho a certeza
     for (let item of this.groups) {
       if (! this.group.includes(item.cadeira))
         this.group.push(item.cadeira);
@@ -34,6 +36,7 @@ export class HomeComponent implements OnInit {
 
   toggle() {
     this.class = [];
+    this.subs = []; //n tenho a certeza
     for (let item of this.groups) {
       if (! this.class.includes(item.grupo) &&  item.cadeira === this.cadeira)
           this.class.push(item.grupo);

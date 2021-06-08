@@ -20,7 +20,6 @@ export class NewEventComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("open");
   }
 
   title: string = "";
