@@ -20,8 +20,7 @@ export class NewEventComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
-    modal.style.display = "block";
+    console.log("open");
   }
 
   title: string = "";
@@ -64,13 +63,9 @@ export class NewEventComponent implements OnInit {
       this.cartService.addToCart(this.product);  
     }
     this.Home.newEvent = false;
-    const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
-    modal.style.display = "none";
   }
 
   closeme() {
     this.Home.newEvent = false;
-    const modal: HTMLElement = document.getElementById("myModal") as HTMLElement;
-    modal.style.display = "none";
   }
 }
