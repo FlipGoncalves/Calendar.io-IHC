@@ -150,15 +150,12 @@ export class CartService {
     //! btw os alertas são só para ver isto a funcionar
     for (let index = 0; index < this.usersList.length; index++) {
       const element = this.usersList[index];
-      alert(element.email)
-      if (element.email == request.email) {
-        if (element.password == request.password) {
+      if (element.email === request.email) {
+        if (element.password === request.password) {
           alert("A IR PARA A PÁGINA CERTA")
         } else {
           alert("Wrong Password")
         }
-      } else {
-        alert("User not registered")
       }
     }
   }
