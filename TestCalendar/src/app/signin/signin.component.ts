@@ -26,6 +26,7 @@ export class SigninComponent implements OnInit {
   clickme() {
     this.request = { email: this.email, password: this.password };
     this.cartService.checkLogin(this.request);
+    this.cartService.getDisplayUser();
   }
 
 }

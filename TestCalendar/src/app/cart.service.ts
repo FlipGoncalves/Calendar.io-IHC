@@ -109,8 +109,8 @@ export class CartService {
     { email: "student@ua.pt", password: "12345" },
   ];
 
-  userOnline: any = [
-  ]
+  userOnline: any = [{ email: "" },
+  ];
 
   data: string = "";
   course: string = "";
@@ -186,9 +186,9 @@ export class CartService {
     }
   }
 
-  getDisplayUser(userOnline: any) {
+  getDisplayUser() {
     let nome: string;
-    let email: any = this.getUserEmail;
+    let email: any = this.getUserEmail(this.userOnline);
     console.log(email);
 
     if (email === "teacher@ua.pt") {
@@ -198,14 +198,18 @@ export class CartService {
     if (email === "student@ua.pt") {
       nome = "João Sousa, 98345";
       return nome;
+    } else {
+      //default
+      nome = "Joana Silva, 90126";
+      return nome;
     }
-
-    return "";
   }
 
   getUserEmail(userOnline: any) {
-    alert(this.userOnline.email);
-    return this.userOnline.email;
+    for (let index = 0; index < userOnline.length; index++) {
+      const element = userOnline[index];
+      return element.email;
+    }
   }
 
   getItems() {
