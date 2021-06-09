@@ -158,7 +158,6 @@ export class CartService {
       if (element.email === request.email) {
         if (element.password === request.password) {
           this.userOnline.push(element.email);
-          alert("A IR PARA A PÁGINA CERTA")
           flag = true;
         } else {
           alert("Login Failed")
@@ -175,13 +174,11 @@ export class CartService {
     for (let index = 0; index < this.usersList.length; index++) {
       const element = this.usersList[index];
       if (element.email === request.email) {
-        alert("USER ALREADY EXISTS")
         flag = true;
         break;
       }
     }
     if (flag == false) {
-      alert("User added");
       this.usersList.push(request);
     }
   }
