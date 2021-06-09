@@ -124,11 +124,12 @@ import { SemanalComponent } from './semanal/semanal.component';
     ReactiveFormsModule,
     AngularMaterialModule,
     IgxButtonModule,
-    IgxToggleModule
+    IgxToggleModule,
   ],
   providers: [
     EventdaytableComponent,
-    CreateGroupComponent
+    CreateGroupComponent,
+    SemanalComponent
   ],
   bootstrap: [AppComponent],
   exports: [
@@ -170,7 +171,7 @@ import { SemanalComponent } from './semanal/semanal.component';
     MatTreeModule,
     OverlayModule,
     PortalModule,
-    ScrollingModule,
+    ScrollingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

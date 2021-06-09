@@ -51,7 +51,7 @@
 </mat-tab-group>
 </div>
 
-<div *ngIf="showSubgroups" align="center" style="margin:auto" class="example-button-row">
+<div *ngIf="showSubgroups" align="center" class="example-button-row">
   <mat-divider style="padding-top:1%;"></mat-divider> 
   <p>Subgroups:</p>
   <div *ngFor="let sub of subgroups">
@@ -73,4 +73,6 @@
   <app-create-group></app-create-group>
 </div>
 
-<app-semanal></app-semanal>
+<div align="center" *ngIf="showsemanal">
+  <app-semanal></app-semanal>
+</div>

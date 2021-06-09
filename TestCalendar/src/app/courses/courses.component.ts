@@ -1,7 +1,6 @@
-import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { MaxLengthValidator } from '@angular/forms';
 import { CartService } from '../cart.service';
+import { SemanalComponent } from '../semanal/semanal.component';
 
 @Component({
   selector: 'app-courses',
@@ -11,7 +10,8 @@ import { CartService } from '../cart.service';
 export class CoursesComponent implements OnInit {
 
   constructor(
-    private cartService: CartService
+    private cartService: CartService,
+    private semanal: SemanalComponent
   ) { }
 
   public cadeira: string = "";
@@ -21,6 +21,8 @@ export class CoursesComponent implements OnInit {
   public showCreateGroup: boolean = false;
   public groups: any = this.cartService.getGroups();
   public subgroups: any = this.cartService.getSubGroups();
+
+  public showsemanal: boolean = true;
 
   ngOnInit(): void {
   }
@@ -33,14 +35,25 @@ export class CoursesComponent implements OnInit {
   toggle() {
     this.showSubgroups = false;
     //this.showSubcreate = false;
+    this.cartService.filter_group = false;
+    this.cartService.filter_subgroup = false;
+    this.showsemanal = false;
+    this.semanal.ngOnInit();
+    this.showsemanal = true;
   }
   
   activateFiltergroups(item:any) {
     this.cartService.setFilterGroupTrue(item.cadeira,item.grupo);
+    this.showsemanal = false;
+    this.semanal.ngOnInit();
+    this.showsemanal = true;
   }
 
   activateFiltersubgroups(item:any) {
     this.cartService.setSubGroupFilterTrue(item.cadeira,item.grupo, item.subgrupo);
+    this.showsemanal = false;
+    this.semanal.ngOnInit();
+    this.showsemanal = true;
   }
 
   validate(item:any, cadeira:string) {
