@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   items: any = [
-    { title: "ferias", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", location: "", type: "" },
+    { title: "Ferias", startdate: "2021-06-01", enddate: "2021-06-03", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", location: "", type: "" },
     { title: "geral 1", startdate: "2021-06-09", enddate: "2021-06-16", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", location: "", type: "" },
     { title: "geral 2", startdate: "2021-06-02", enddate: "2021-06-09", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", location: "", type: "" }
   ];

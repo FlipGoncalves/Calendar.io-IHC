@@ -4,11 +4,12 @@
   <router-outlet></router-outlet>
   <mat-tab-group dynamicHeight mat-align-tabs="center" (selectedTabChange)="toggle()">
   <mat-tab label="Interação Humano-Computador">
-    <section style="margin:auto">
+    <h2 class="titulo" style="padding-top:10px;">Groups</h2>
+    <section style="margin:auto;">
       <div class="example-button-row" align="center">
         <div *ngFor="let item of groups">
           <div *ngIf="validate(item, 'IHC')">
-            <a mat-raised-button (click)="activateFiltergroups(item); showSub(item, 'group')" style="float: left">{{item.cadeira + " " + item.grupo}}</a>
+            <a mat-raised-button (click)="activateFiltergroups(item); showSub(item, 'group')" style="float: left;">{{item.cadeira + " " + item.grupo}}</a>
           </div>
         </div>
         <a mat-raised-button (click)="onclick('IHC')" style="color: #a5ca56;">
@@ -19,6 +20,7 @@
     </section>
   </mat-tab>
   <mat-tab label="Padrões e Desenvolvimento de Software">
+    <h2 class="titulo" style="padding-top:10px;">Groups</h2>
     <section style="margin:auto">
       <div class="example-button-row" align="center">
         <div *ngFor="let item of groups">
@@ -34,6 +36,7 @@
     </section>
   </mat-tab>
   <mat-tab label="Base de Dados">
+    <h2 class="titulo" style="padding-top:10px;">Groups</h2>
     <section style="margin:auto">
       <div class="example-button-row" align="center">
         <div *ngFor="let item of groups">

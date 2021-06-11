@@ -4,11 +4,11 @@ section {
   
   .example-button-row {
     width: 800px;
-    padding-top: 2%;
+    padding-top: 1px;
   }
   
   .example-button-row .mat-button-base {
-    margin: 8px 50px 8px 0;
+    margin: 1px 50px 8px 0;
   }
 
   .titulo{
