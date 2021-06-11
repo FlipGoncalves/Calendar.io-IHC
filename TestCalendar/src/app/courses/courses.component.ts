@@ -16,6 +16,7 @@ export class CoursesComponent implements OnInit {
 
   public cadeira: string = "";
   public grupo: string = "";
+  public subgrupo: string = "";
   public showSubgroups: boolean = false;
   public showSubcreate: boolean = false;
   public showCreateGroup: boolean = false;
@@ -43,6 +44,7 @@ export class CoursesComponent implements OnInit {
   }
   
   activateFiltergroups(item:any) {
+    this.cartService.setFilterSubGroupFalse();
     this.cartService.setFilterGroupTrue(item.cadeira,item.grupo);
     this.showsemanal = false;
     this.semanal.ngOnInit();
@@ -50,6 +52,7 @@ export class CoursesComponent implements OnInit {
   }
 
   activateFiltersubgroups(item:any) {
+    this.cartService.setFilterGroupFalse();
     this.cartService.setSubGroupFilterTrue(item.cadeira,item.grupo, item.subgrupo);
     this.showsemanal = false;
     this.semanal.ngOnInit();
@@ -69,9 +72,13 @@ export class CoursesComponent implements OnInit {
     //this.cartService.setGroup(this.grupo);
   }
 
-  showSub(item:any) {
+  showSub(item:any, type: String) {
     this.cadeira = item.cadeira;
     this.grupo = item.grupo;
+    if (type === "sub")
+      this.subgrupo = item.subgrupo;
+    else 
+      this.subgrupo = "";
     this.showSubgroups = true;
   }
 }

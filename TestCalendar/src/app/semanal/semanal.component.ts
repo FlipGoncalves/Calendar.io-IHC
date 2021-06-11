@@ -49,34 +49,32 @@ export class SemanalComponent implements OnInit {
   }
 
   forloop() {
+    let array: any = [];
     if (this.cartService.filter_group == true) {
       this.items = this.cartService.eventos_groups;
-      let array: any = [];
       for (let item of this.items) {
         if (item.cadeira == this.cartService.groupFilter.cadeira && item.grupo == this.cartService.groupFilter.grupo) {
           array.push(item)
         }
       }
-      return array;
-    }else if (this.cartService.filter_subgroup == true) {
+    } else if (this.cartService.filter_subgroup == true) {
       this.items = this.cartService.eventos_subgroups;
-      let array: any = [];
       for (let item of this.items) {
         if (item.cadeira == this.cartService.subgroupFilter.cadeira && item.grupo == this.cartService.subgroupFilter.grupo && item.subgrupo == this.cartService.subgroupFilter.subgrupo) {
           array.push(item)
         }
       }
-      return array;
-    }
-    else{
-      this.items = this.cartService.getItems();
-      let array: any = [];
+      this.items = this.cartService.eventos_groups;
       for (let item of this.items) {
-        array.push(item)
+        if (item.cadeira == this.cartService.groupFilter.cadeira && item.grupo == this.cartService.groupFilter.grupo) {
+          array.push(item)
+        }
       }
-      return array;
     }
-
-
+    this.items = this.cartService.getItems();
+    for (let item of this.items) {
+      array.push(item)
+    }
+    return array;
   }
 }

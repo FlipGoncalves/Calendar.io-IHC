@@ -8,7 +8,7 @@
       <div class="example-button-row" align="center">
         <div *ngFor="let item of groups">
           <div *ngIf="validate(item, 'IHC')">
-            <a mat-raised-button (click)="activateFiltergroups(item); showSub(item)" style="float: left">{{item.cadeira + " " + item.grupo}}</a>
+            <a mat-raised-button (click)="activateFiltergroups(item); showSub(item, 'group')" style="float: left">{{item.cadeira + " " + item.grupo}}</a>
           </div>
         </div>
         <a mat-raised-button (click)="onclick('IHC')" style="color: #a5ca56;">
@@ -23,7 +23,7 @@
       <div class="example-button-row" align="center">
         <div *ngFor="let item of groups">
           <div *ngIf="validate(item, 'PDS')">
-            <a mat-raised-button (click)="activateFiltergroups(item); showSub(item)" style="float: left">{{item.cadeira + " " + item.grupo}}</a>
+            <a mat-raised-button (click)="activateFiltergroups(item); showSub(item, 'group')" style="float: left">{{item.cadeira + " " + item.grupo}}</a>
           </div>
         </div>
         <a mat-raised-button (click)="onclick('PDS')" style="color: #a5ca56;">
@@ -38,7 +38,7 @@
       <div class="example-button-row" align="center">
         <div *ngFor="let item of groups">
           <div *ngIf="validate(item, 'BD')">
-            <a mat-raised-button (click)="activateFiltergroups(item); showSub(item)" style="float: left">{{item.cadeira + " " + item.grupo}}</a>
+            <a mat-raised-button (click)="activateFiltergroups(item); showSub(item, 'group')" style="float: left">{{item.cadeira + " " + item.grupo}}</a>
           </div>
         </div>
         <a mat-raised-button (click)="onclick('BD')" style="color: #a5ca56;">
@@ -56,7 +56,7 @@
   <p>Subgroups:</p>
   <div *ngFor="let sub of subgroups">
     <div *ngIf="grupo === sub.grupo && sub.cadeira === cadeira">
-      <a mat-raised-button routerLink="/group" (click)="activateFiltersubgroups(sub)" style="float: left">{{sub.subgrupo}}</a>
+      <a mat-raised-button (click)="activateFiltersubgroups(sub); showSub(sub, 'sub')" style="float: left">{{sub.subgrupo}}</a>
     </div>
   </div>
   <a mat-raised-button (click)="subcreate()" style="color: #a5ca56;">
