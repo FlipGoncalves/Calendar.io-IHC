@@ -64,16 +64,12 @@ export class SemanalComponent implements OnInit {
           array.push(item)
         }
       }
-      this.items = this.cartService.eventos_groups;
-      for (let item of this.items) {
-        if (item.cadeira == this.cartService.groupFilter.cadeira && item.grupo == this.cartService.groupFilter.grupo) {
-          array.push(item)
-        }
-      }
     }
-    this.items = this.cartService.getItems();
-    for (let item of this.items) {
-      array.push(item)
+    else {
+      this.items = this.cartService.getItems();
+      for (let item of this.items) {
+        array.push(item)
+      }
     }
     return array;
   }

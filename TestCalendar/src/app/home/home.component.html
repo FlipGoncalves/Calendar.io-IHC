@@ -1,5 +1,5 @@
 <div>
-  <div style="width: 60%; float: left">
+  <div style="width: 65%; float: left; padding-left: 15px">Filter your calendar and your Events by group:
     <mat-form-field appearance="fill" style="padding-left: 5%">
       <mat-label>Course</mat-label>
       <mat-select [(ngModel)]="cadeira" (selectionChange)="toggle()">
@@ -20,14 +20,13 @@
     </mat-form-field>
   </div>
   <mat-nav-list appearance="fill" style="padding-top: 1%">
-      <a mat-raised-button (click)="search()"><mat-icon>search</mat-icon><span style="padding-left: 2%">Search</span></a>
+      <a mat-raised-button (click)="search()"><mat-icon>search</mat-icon><span style="padding-left: 2%">Filter</span></a>
   </mat-nav-list>
 </div>
 <div style="padding-top: 3%;" align="center">
   <section>
-    <div class="example-button-row">
+    <div class="example-button-row">Create a new event for the group selected:
       <a mat-raised-button (click)="newevent()">Create Event</a>
-      <a mat-raised-button routerLink="/home">Edit Group</a>
     </div>
   </section>
   <router-outlet></router-outlet>

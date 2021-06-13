@@ -66,8 +66,8 @@ export class CartService {
   ]
 
   eventos_groups: any = [
-    { title: "ferias grupos TP1", startdate: "2021-06-09", enddate: "2021-06-09", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type: "", cadeira: "IHC", grupo: "TP1" },
-    { title: "ferias grupos P1", startdate: "2021-06-09", enddate: "2021-06-09", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type: "", cadeira: "IHC", grupo: "P1" }
+    { title: "ferias grupos TP1", startdate: "2021-06-09", enddate: "2021-06-14", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type: "", cadeira: "IHC", grupo: "TP1" },
+    { title: "ferias grupos P1", startdate: "2021-06-09", enddate: "2021-06-14", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type: "", cadeira: "IHC", grupo: "P1" }
   ]
 
   eventos_subgroups: any = [
