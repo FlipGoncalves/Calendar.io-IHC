@@ -1,31 +1,31 @@
 <div>
-  <div style="width: 65%; float: left; padding-left: 15px">Filter your calendar and your Events by group:
-    <mat-form-field appearance="fill" style="padding-left: 5%">
+  <div style="width:100%; float: left; padding-left: 15px; background-color:#e6fabb">Choose the group to see your Calendar and Events:
+    <mat-form-field appearance="fill" style="padding-left: 5%; padding-top: .5%">
       <mat-label>Course</mat-label>
       <mat-select [(ngModel)]="cadeira" (selectionChange)="toggle()">
           <mat-option *ngFor="let group of group" [value]="group">{{group}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill" style="padding-left: 5%">
+    <mat-form-field appearance="fill" style="padding-left: 5%; padding-top: .5%">
       <mat-label>Group</mat-label>
       <mat-select [(ngModel)]="grupo" (selectionChange)="togglesubgroups()">
         <mat-option *ngFor="let group of class" [value]="group">{{group}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill" style="padding-left: 5%">
+    <mat-form-field appearance="fill" style="padding-left: 5%; padding-top: .5%">
       <mat-label>Subgroup</mat-label>
       <mat-select [(ngModel)]="subgrupo">
         <mat-option *ngFor="let group of subs" [value]="group">{{group}}</mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-nav-list appearance="fill" style="padding-top: 1%; float: right; padding-right: 20%">
+      <a mat-raised-button (click)="search()"><mat-icon>search</mat-icon><span style="padding-left: 2%">Search</span></a>
+    </mat-nav-list>
   </div>
-  <mat-nav-list appearance="fill" style="padding-top: 1%">
-      <a mat-raised-button (click)="search()"><mat-icon>search</mat-icon><span style="padding-left: 2%">Filter</span></a>
-  </mat-nav-list>
 </div>
 <div style="padding-top: 3%;" align="center">
   <section>
-    <div class="example-button-row">Create a new event for the group selected:
+    <div class="example-button-row">Create a new Event for the group SELECTED:
       <a mat-raised-button (click)="newevent()">Create Event</a>
     </div>
   </section>

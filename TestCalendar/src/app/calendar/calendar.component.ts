@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IgxCalendarComponent, IgxDialogComponent } from 'igniteui-angular';
 import { CartService } from '../cart.service';
 import { EventdaytableComponent } from '../eventdaytable/eventdaytable.component';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
     selector: 'app-calendar',
@@ -14,7 +15,8 @@ export class CalendarComponent implements OnInit{
 
     constructor(
         private cartService: CartService,
-        private event: EventdaytableComponent
+        private event: EventdaytableComponent,
+        private home: HomeComponent
     ) { }
 
     public formatOptions: any;
@@ -30,6 +32,8 @@ export class CalendarComponent implements OnInit{
     public onSelection(date: Date | Date[]) {
         if(this.showMyContainer)
             this.showMyContainer = false;
+        
+        this.home.search();
             
         let day = (+JSON.stringify(date).substring(9,11));
         let month = (+JSON.stringify(date).substring(6,8));

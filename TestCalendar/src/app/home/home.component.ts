@@ -59,6 +59,7 @@ export class HomeComponent implements OnInit {
   }
 
   newevent() {
+    this.search();
     this.newEvent = true;
   }
 }

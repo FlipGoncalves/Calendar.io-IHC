@@ -129,7 +129,8 @@ import { SemanalComponent } from './semanal/semanal.component';
   providers: [
     EventdaytableComponent,
     CreateGroupComponent,
-    SemanalComponent
+    SemanalComponent,
+    HomeComponent
   ],
   bootstrap: [AppComponent],
   exports: [
