@@ -11,10 +11,13 @@
     <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">Menu
       <mat-icon>menu</mat-icon>
     </button>
-    <span style="padding-left: 40%;"></span>
+    <button type="button" mat-icon-button routerLink="/home" style="margin-left: 100px" (click)="desactivateFilter()">My Calendar<mat-icon>input</mat-icon></button>
+    <button type="button" mat-icon-button routerLink="/mycourses" style="margin-left: 100px" (click)="desactivateFilter()">Courses<mat-icon>book</mat-icon></button>
+    <span style="padding-left: 25%;"></span>
     <mat-icon>calendar_today</mat-icon>
     <span routerLink="/home" style="flex: 1 1 auto; padding-left: 8px" (click)="desactivateFilter()">StudyCalendar</span>
     <span class="example-spacer"></span>
+
     <span>{{nome}}</span>
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/testar-signin">
       <mat-icon>account_circle</mat-icon>
