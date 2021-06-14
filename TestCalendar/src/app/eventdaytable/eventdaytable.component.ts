@@ -37,70 +37,93 @@ export class EventdaytableComponent implements OnInit {
     this.date = date;
   }
 
+  repet(rep: String) {
+    switch(rep) {
+      case "Daily":
+        return 1;
+      case "Weakly":
+        return 7;
+      case "Every 2 Weeks":
+        return 14;
+      case "Monthly":
+        return 30;
+      case "Yearly":
+        return 365;
+    }
+    return -1;
+  }
+
   forloop() {
+    let array: any = [];
+    let newDate = new Date(this.date);
+    newDate.setDate(newDate.getDate() + 1); //??
     if (this.cartService.filter_group == true) {
       this.items = this.cartService.eventos_groups;
-      let array: any = [];
-      let newDate = new Date(this.date);
-      newDate.setDate(newDate.getDate() + 1); //??
       for (let item of this.items) {
         let startdate = new Date(item.startdate)
         let enddate = new Date(item.enddate)
-        let repetition = item.repetition;
+        let repetition = this.repet(item.repetition);
+        let timeperiod = enddate.getDate() - startdate.getDate();
+        let count = 0;
         if (item.cadeira == this.cartService.groupFilter.cadeira && item.grupo == this.cartService.groupFilter.grupo) {
           if ((startdate <= newDate && newDate <= enddate)) {
             array.push(item)
+            count = 1;
           }
-          if (+repetition) {
-            if (startdate.getDate() + (+repetition) <= newDate.getDate() && enddate.getDate() + (+repetition) >= newDate.getDate()) {
+          if (repetition && count == 0) {
+            if ((((newDate.getDate() - startdate.getDate()) % (repetition) == 0) && startdate.getDate() < newDate.getDate()) || ((newDate.getDate() - enddate.getDate()) % (repetition) == 0) && (enddate.getDate() > newDate.getDate())) {
               array.push(item)
+              count = 1;
             }
+            if (newDate.getDate() - enddate.getDate() >= (repetition-timeperiod) && count == 0 && newDate.getDate() - startdate.getDate() <= (repetition+timeperiod))
+              array.push(item)
           }
         }
       }
-      return array;
-    }else if (this.cartService.filter_subgroup == true) {
+    } else if (this.cartService.filter_subgroup == true) {
       this.items = this.cartService.eventos_subgroups;
-      let array: any = [];
-      let newDate = new Date(this.date);
-      newDate.setDate(newDate.getDate() + 1); //??
       for (let item of this.items) {
         let startdate = new Date(item.startdate)
         let enddate = new Date(item.enddate)
-        let repetition = item.repetition;
-        if (item.cadeira == this.cartService.subgroupFilter.cadeira && item.grupo == this.cartService.subgroupFilter.grupo && item.subgrupo == this.cartService.subgroupFilter.subgrupo) {
+        let repetition = this.repet(item.repetition);
+        let count = 0;
+        let timeperiod = enddate.getDate() - startdate.getDate();
+        if (item.cadeira == this.cartService.groupFilter.cadeira && item.grupo == this.cartService.groupFilter.grupo && item.subgrupo == this.cartService.subgroupFilter.subgrupo) {
           if ((startdate <= newDate && newDate <= enddate)) {
             array.push(item)
+            count = 1;
           }
-          if (+repetition) {
-            if (startdate.getDate() + (+repetition) <= newDate.getDate() && enddate.getDate() + (+repetition) >= newDate.getDate()) {
+          if (repetition && count == 0) {
+            if ((newDate.getDate() - startdate.getDate()) % (repetition) == 0 || (newDate.getDate() - enddate.getDate()) % (repetition) == 0) {
               array.push(item)
             }
+            if (newDate.getDate() - enddate.getDate() >= (repetition-timeperiod) && count == 0 && newDate.getDate() - startdate.getDate() <= (repetition+timeperiod))
+              array.push(item)
           }
         }
       }
-      return array;
     }
-    else{
+    else {
       this.items = this.cartService.getItems();
-      let array: any = [];
-      let newDate = new Date(this.date);
-      newDate.setDate(newDate.getDate() + 1); //??
       for (let item of this.items) {
         let startdate = new Date(item.startdate)
         let enddate = new Date(item.enddate)
-        let repetition = item.repetition;
+        let repetition = this.repet(item.repetition);
+        let count = 0;
+        let timeperiod = enddate.getDate() - startdate.getDate();
         if ((startdate <= newDate && newDate <= enddate)) {
           array.push(item)
+          count = 1;
         }
-        if (+repetition) {
-          if (startdate.getDate() + (+repetition) <= newDate.getDate() && enddate.getDate() + (+repetition) >= newDate.getDate()) {
+        if (repetition && count == 0) {
+          if ((newDate.getDate() - startdate.getDate()) % (repetition) == 0 || (newDate.getDate() - enddate.getDate()) % (repetition) == 0) {
             array.push(item)
           }
+          if (newDate.getDate() - enddate.getDate() >= (repetition-timeperiod) && count == 0 && newDate.getDate() - startdate.getDate() <= (repetition+timeperiod))
+              array.push(item)
         }
       }
-      return array;
     }
+    return array;
   }
-
 }
