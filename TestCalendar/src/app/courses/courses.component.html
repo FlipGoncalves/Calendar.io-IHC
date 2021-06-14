@@ -15,7 +15,7 @@
           </div>
           <a mat-raised-button (click)="desactivateFiltergroups()" style="color: #a5ca56; float: left;">
             <mat-icon>remove_red_eye</mat-icon>
-            <a style="margin-left: 2%;">See all</a>
+            <a style="margin-left: 2%;">Deselect group</a>
           </a>
           <a mat-raised-button (click)="onclick('IHC')" style="color: #a5ca56; float: left;">
             <mat-icon>create_new_folder</mat-icon>
@@ -34,6 +34,10 @@
                 style="float: left">{{item.cadeira + " " + item.grupo}}</a>
             </div>
           </div>
+          <a mat-raised-button (click)="desactivateFiltergroups()" style="color: #a5ca56; float: left;">
+            <mat-icon>remove_red_eye</mat-icon>
+            <a style="margin-left: 2%;">Deselect group</a>
+          </a>
           <a mat-raised-button (click)="onclick('PDS')" style="color: #a5ca56;">
             <mat-icon>create_new_folder</mat-icon>
             <a style="margin-left: 2%;">Create a new Calendar group</a>
@@ -51,6 +55,10 @@
                 style="float: left">{{item.cadeira + " " + item.grupo}}</a>
             </div>
           </div>
+          <a mat-raised-button (click)="desactivateFiltergroups()" style="color: #a5ca56; float: left;">
+            <mat-icon>remove_red_eye</mat-icon>
+            <a style="margin-left: 2%;">Deselect group</a>
+          </a>
           <a mat-raised-button (click)="onclick('BD')" style="color: #a5ca56;">
             <mat-icon>create_new_folder</mat-icon>
             <a style="margin-left: 2%;">Create a new Calendar group</a>
@@ -61,19 +69,28 @@
   </mat-tab-group>
 
   <mat-divider style="padding-top:1%;"></mat-divider>
-  <div *ngIf="showSubgroups" class="example-button-row">
+  <div *ngIf="showSubgroups">
     <h2 class="titulo">{{cadeira + " " + grupo}} Subgroups:</h2>
-    <div *ngFor="let sub of subgroups">
-      <div *ngIf="grupo === sub.grupo && sub.cadeira === cadeira">
-        <a mat-raised-button (click)="activateFiltersubgroups(sub); showSub(sub, 'sub')"
-          style="float: left">{{sub.subgrupo}}</a>
+    <section style="margin:auto">
+      <div class="example-button-row">
+        <div *ngFor="let sub of subgroups">
+          <div *ngIf="grupo === sub.grupo && sub.cadeira === cadeira">
+            <a mat-raised-button (click)="activateFiltersubgroups(sub); showSub(sub, 'sub')"
+              style="float: left">{{sub.subgrupo}}</a>
+          </div>
+        </div>
+        <a mat-raised-button (click)="desactivateFiltersubgroups()" style="color: #a5ca56; float: left;">
+          <mat-icon>remove_red_eye</mat-icon>
+          <a style="margin-left: 2%;">Deselect subgroup</a>
+        </a>
+        <a mat-raised-button (click)="subcreate()" style="color: #a5ca56;">
+          <mat-icon>create_new_folder</mat-icon>
+          <a style="margin-left: 2%;">Create a new subgroup</a>
+        </a>
       </div>
-    </div>
-    <a mat-raised-button (click)="subcreate()" style="color: #a5ca56;">
-      <mat-icon>create_new_folder</mat-icon>
-      <a style="margin-left: 2%;">Create a new subgroup</a>
-    </a>
+    </section>
   </div>
+
 
   <div align="center" *ngIf="showsemanal">
     <app-semanal></app-semanal>

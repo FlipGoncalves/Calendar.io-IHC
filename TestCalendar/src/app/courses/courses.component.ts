@@ -71,6 +71,16 @@ export class CoursesComponent implements OnInit {
     this.showsemanal = true;
   }
 
+  desactivateFiltersubgroups() {
+    this.cartService.setFilterSubGroupFalse();
+    this.cartService.setFilterGroupTrue(this.cadeira,this.grupo);
+    this.showSubcreate = false;
+    this.showCreateGroup = false;
+    this.showsemanal = false;
+    this.semanal.ngOnInit();
+    this.showsemanal = true;
+  }
+
   validate(item:any, cadeira:string) {
     if (item.cadeira==cadeira) {
       return true;
