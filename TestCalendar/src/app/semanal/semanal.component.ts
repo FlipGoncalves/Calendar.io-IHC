@@ -73,7 +73,7 @@ export class SemanalComponent implements OnInit {
       for (let item of this.items) {
         array.push(item)
       }
-      this.filtradoPor = "";
+      this.filtradoPor = "Geral";
     }
     return array;
   }
