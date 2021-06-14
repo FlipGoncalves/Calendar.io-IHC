@@ -71,11 +71,7 @@ export class CartService {
   ]
 
   eventos_subgroups: any = [
-<<<<<<< HEAD
     { title: "ferias subgrupos", startdate: "2021-06-15", enddate: "2021-06-15", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type: "", cadeira: "IHC", grupo: "P1", subgrupo: "G1" }
-=======
-    { title: "ferias subgrupos", startdate: "2021-06-14", enddate: "2021-06-14", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type: "", cadeira: "IHC", grupo: "P1", subgrupo: "G1" }
->>>>>>> 9adb9dfb8e4a534e0ddf70d4a21fa3d4f70cd68f
   ]
 
   subgroups: any = [
