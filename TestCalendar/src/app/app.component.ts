@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from './cart.service';
+import { CoursesComponent } from './courses/courses.component';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,10 @@ import { CartService } from './cart.service';
 })
 export class AppComponent {
   title = 'TestCalendar';
-  constructor(  private cartService: CartService) { }
+  constructor(  
+    private cartService: CartService,
+    private Course: CoursesComponent
+  ) { }
 
   desactivateFilter() {
     this.cartService.setFilterGroupFalse();

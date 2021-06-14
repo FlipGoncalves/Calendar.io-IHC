@@ -71,7 +71,7 @@ export class CartService {
   ]
 
   eventos_subgroups: any = [
-    { title: "ferias subgrupos", startdate: "2021-06-09", enddate: "2021-06-09", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type: "", cadeira: "IHC", grupo: "P1", subgrupo: "G1" }
+    { title: "ferias subgrupos", startdate: "2021-06-14", enddate: "2021-06-14", starttime: "09:00", endtime: "10:00", reminder: "none", repetition: "Weakly", notes: "", type: "", cadeira: "IHC", grupo: "P1", subgrupo: "G1" }
   ]
 
   subgroups: any = [
@@ -118,6 +118,7 @@ export class CartService {
   public filter_subgroup: boolean = false;
   public groupFilter: any;
   public subgroupFilter: any;
+  public cadeira: string = "";
 
   type: string = "";
   next_type: boolean = false;

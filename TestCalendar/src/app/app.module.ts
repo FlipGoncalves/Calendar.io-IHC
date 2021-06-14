@@ -130,7 +130,8 @@ import { SemanalComponent } from './semanal/semanal.component';
     EventdaytableComponent,
     CreateGroupComponent,
     SemanalComponent,
-    HomeComponent
+    HomeComponent,
+    CoursesComponent
   ],
   bootstrap: [AppComponent],
   exports: [
