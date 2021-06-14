@@ -23,6 +23,7 @@ export class SemanalComponent implements OnInit {
   public date: string = this.cartService.getData();
   public items: any = this.cartService.getItems();
   public dataSource: any = this.items;
+  public filtradoPor: string = "";
   displayedColumns: string[] = ['title', 'startdate', 'enddate', 'starttime', 'endtime', 'repetition', 'reminder', 'notes'];
 
   filter(events: any): any {
@@ -57,6 +58,7 @@ export class SemanalComponent implements OnInit {
           array.push(item)
         }
       }
+      this.filtradoPor = this.cartService.groupFilter.cadeira + " " + this.cartService.groupFilter.grupo;
     } else if (this.cartService.filter_subgroup == true) {
       this.items = this.cartService.eventos_subgroups;
       for (let item of this.items) {
@@ -64,12 +66,14 @@ export class SemanalComponent implements OnInit {
           array.push(item)
         }
       }
+      this.filtradoPor = this.cartService.subgroupFilter.cadeira + " " + this.cartService.subgroupFilter.grupo + " " + this.cartService.subgroupFilter.subgrupo;
     }
     else {
       this.items = this.cartService.getItems();
       for (let item of this.items) {
         array.push(item)
       }
+      this.filtradoPor = "";
     }
     return array;
   }

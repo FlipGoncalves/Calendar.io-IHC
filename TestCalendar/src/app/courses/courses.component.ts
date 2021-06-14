@@ -49,11 +49,23 @@ export class CoursesComponent implements OnInit {
     this.showsemanal = false;
     this.semanal.ngOnInit();
     this.showsemanal = true;
+    this.cartService.setCourse(item.cadeira);
   }
 
   activateFiltersubgroups(item:any) {
     this.cartService.setFilterGroupFalse();
     this.cartService.setSubGroupFilterTrue(item.cadeira,item.grupo, item.subgrupo);
+    this.showsemanal = false;
+    this.semanal.ngOnInit();
+    this.showsemanal = true;
+  }
+
+  desactivateFiltergroups() {
+    this.cartService.setFilterGroupFalse();
+    this.cartService.setFilterSubGroupFalse();
+    this.showSubgroups = false;
+    this.showSubcreate = false;
+    this.showCreateGroup = false;
     this.showsemanal = false;
     this.semanal.ngOnInit();
     this.showsemanal = true;
