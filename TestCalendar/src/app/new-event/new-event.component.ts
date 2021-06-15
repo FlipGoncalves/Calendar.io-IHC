@@ -20,11 +20,16 @@ export class NewEventComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    let tmp: string = this.cartService.getData().substring(0,9) + (Number(this.cartService.getData().substring(9,11)) + 1).toString();
+    if (Number(tmp)!=1) {
+      this.start_date = tmp;
+      this.end_date = tmp;
+    }
   }
 
   title: string = "";
-  start_date: string = this.cartService.getData();
-  end_date: string = this.cartService.getData();
+  start_date: string = "";
+  end_date: string = "";
   start_time: string = "";
   end_time: string = "";
   rem: string = "";
