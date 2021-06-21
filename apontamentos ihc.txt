@@ -1,5 +1,0 @@
--> ponto onde há evento								IMPORTANTE
--> visualizar subgrupo								IMPORTANTE
--> editar/apagar evento
--> editar grupo
--> validaçao de formularios
